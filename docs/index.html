@@ -157,7 +157,7 @@
 
     <!-- Top Dashboard Metrics Panel (Hero Section) -->
     <section class="px-6 pt-6">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <!-- Avg Price Card -->
             <div class="glass-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group shadow-lg">
@@ -188,16 +188,6 @@
                 <span id="stat-min-market" class="text-[9px] text-slate-500 mt-1 truncate max-w-full font-medium">Memuat lokasi...</span>
             </div>
 
-            <!-- Active Anomalies Alert Card -->
-            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group shadow-lg border-l-2 border-l-amber-500/50">
-                <div class="absolute -right-4 -top-4 w-16 h-16 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all duration-500"></div>
-                <span class="text-xs font-semibold text-slate-400 tracking-wide flex items-center gap-1.5">
-                    Lonjakan Pasar
-                </span>
-                <span id="stat-anomalies-count" class="font-outfit font-extrabold text-lg sm:text-xl text-amber-400 mt-2 tracking-tight">0 Anomali</span>
-                <span class="text-[10px] text-amber-500/90 mt-1 font-bold">Kenaikan Harga > 15%</span>
-            </div>
-
         </div>
     </section>
 
@@ -209,7 +199,7 @@
             
             <!-- Tabs Navigation Row -->
             <div class="flex items-center justify-between border-b border-white/5 pb-2">
-                <div class="flex items-center gap-1 bg-slate-950/60 p-1 rounded-xl border border-white/5">
+                <div class="hidden md:flex items-center gap-1 bg-slate-950/60 p-1 rounded-xl border border-white/5">
                     <button id="btn-tab-map" class="px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-2 bg-emerald-500 text-brand-dark shadow-[0_0_12px_rgba(16,185,129,0.3)]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m-3.75-3h.008v.008H12v-.008zM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -242,12 +232,16 @@
                         <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-white/5 pb-1">Kondisi Pasar</span>
                         <div class="flex flex-col gap-1.5">
                             <div class="flex items-center gap-2">
-                                <div class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(239,68,68,0.7)] animate-pulse"></div>
-                                <span class="text-[10px] text-slate-300 font-semibold">Lonjakan Anomali</span>
+                                <div class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.7)]"></div>
+                                <span class="text-[10px] text-slate-300 font-semibold">Harga Mahal</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.7)]"></div>
-                                <span class="text-[10px] text-slate-300 font-semibold">Stabil / Normal</span>
+                                <span class="text-[10px] text-slate-300 font-semibold">Harga Wajar</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
+                                <span class="text-[10px] text-slate-300 font-semibold">Harga Murah</span>
                             </div>
                         </div>
                     </div>
@@ -296,7 +290,7 @@
             </div>
         </section>
 
-        <!-- Right Section (30% Width): Controls & Real-Time Price Anomalies List -->
+        <!-- Right Section (30% Width): Controls & Real-Time Price Information -->
         <section id="panel-sidebar" class="w-full md:w-80 flex flex-col gap-6 flex-shrink-0 md:min-h-0 min-h-[300px]">
             
             <!-- Controls Card -->
@@ -324,46 +318,6 @@
                         <option value="10">Bawang Putih</option>
                     </select>
                 </div>
-                
-                <!-- Timeframe Selector -->
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Timeframe Anomali</label>
-                    <div class="grid grid-cols-4 gap-1 bg-slate-950 p-1 rounded-xl border border-white/10">
-                        <button type="button" data-tf="1D" class="tf-btn py-1.5 text-[10px] font-extrabold rounded-lg text-slate-400 hover:text-slate-100 transition duration-150">1D</button>
-                        <button type="button" data-tf="3D" class="tf-btn py-1.5 text-[10px] font-extrabold rounded-lg text-slate-400 hover:text-slate-100 transition duration-150">3D</button>
-                        <button type="button" data-tf="1W" class="tf-btn py-1.5 text-[10px] font-extrabold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 transition duration-150 shadow-inner">1W</button>
-                        <button type="button" data-tf="1M" class="tf-btn py-1.5 text-[10px] font-extrabold rounded-lg text-slate-400 hover:text-slate-100 transition duration-150">1M</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Price Anomalies List Card -->
-            <div class="glass-card p-5 rounded-2xl flex flex-col gap-4 shadow-xl border border-white/5 flex-1 min-h-0 relative">
-                <div class="flex items-center justify-between border-b border-white/5 pb-2">
-                    <h2 class="font-outfit font-extrabold text-xs text-slate-300 tracking-widest uppercase flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-rose-500">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                        </svg>
-                        Daftar Anomali
-                    </h2>
-                    <span id="anomalies-badge" class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[9px] font-bold text-slate-500 font-mono">
-                        0 Baru
-                    </span>
-                </div>
-
-                <!-- Scrollable Anomalies Area -->
-                <div id="anomalies-container" class="flex-1 overflow-y-auto flex flex-col gap-2.5 max-h-[220px] md:max-h-none pr-1">
-                    
-                    <!-- Empty State for Anomalies -->
-                    <div id="anomalies-empty" class="h-full flex flex-col items-center justify-center text-center p-4 gap-2 text-slate-500 select-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-600">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                        </svg>
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Harga Stabil</span>
-                        <p class="text-[9px] text-slate-600 max-w-[150px] leading-relaxed">Seluruh pasar beroperasi dalam deviasi harga wajar harian.</p>
-                    </div>
-
-                </div>
             </div>
             
         </section>
@@ -383,13 +337,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306 8.9-8.91M21.75 8.25v5.5h-5.5" />
             </svg>
             <span class="text-[9px]">Tren</span>
-        </button>
-        <button id="nav-mob-anomalies" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300 relative">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-            </svg>
-            <span class="text-[9px]">Anomali</span>
-            <span id="nav-mob-anomalies-dot" class="absolute top-0 right-2 w-1.5 h-1.5 bg-amber-500 rounded-full hidden"></span>
         </button>
         <button id="nav-mob-controls" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
@@ -411,13 +358,12 @@
         // 1. STATE & GLOBAL VARIABLES
         // =====================================================================
         let currentTab = 'map'; // 'map' | 'trend'
-        let activeTimeframe = '1W'; // '1D' | '3D' | '1W' | '1M'
         let trendChartInstance = null;
         let markerMap = {}; // Untuk mengaitkan market_id dengan objek marker Leaflet
+        let lastWidth = window.innerWidth;
 
         // Static loaded data structures
         let pricesData = null;
-        let anomaliesData = null;
         let trendsData = null;
 
         // Dom Elements
@@ -437,13 +383,6 @@
         const statMaxMarket = document.getElementById('stat-max-market');
         const statMin = document.getElementById('stat-min');
         const statMinMarket = document.getElementById('stat-min-market');
-        const statAnomaliesCount = document.getElementById('stat-anomalies-count');
-        
-        // Anomalies Dom
-        const anomaliesContainer = document.getElementById('anomalies-container');
-        const anomaliesEmpty = document.getElementById('anomalies-empty');
-        const anomaliesBadge = document.getElementById('anomalies-badge');
-        const navMobAnomaliesDot = document.getElementById('nav-mob-anomalies-dot');
         
         // Mobile Sidebar Reference
         const panelSidebar = document.getElementById('panel-sidebar');
@@ -481,9 +420,9 @@
                 let c = ' bg-emerald-500/20 text-emerald-400 ring-2 ring-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.3)]';
                 
                 const childMarkers = cluster.getAllChildMarkers();
-                const hasAnomaly = childMarkers.some(m => m.options.isAnomaly);
-                if (hasAnomaly) {
-                    c = ' bg-rose-500/20 text-rose-400 ring-2 ring-rose-500/40 shadow-[0_0_20px_rgba(239,68,68,0.3)] animate-pulse';
+                const hasMahal = childMarkers.some(m => m.options.isMahal);
+                if (hasMahal) {
+                    c = ' bg-rose-500/20 text-rose-400 ring-2 ring-rose-500/40 shadow-[0_0_20px_rgba(239,68,68,0.3)]';
                 }
                 
                 return new L.DivIcon({ 
@@ -571,11 +510,6 @@
                 if (!pRes.ok) throw new Error("Gagal mengambil data latest_prices.json statis.");
                 pricesData = await pRes.json();
                 
-                // Tarik anomalies.json
-                const aRes = await fetch('data/anomalies.json?_t=' + Date.now());
-                if (!aRes.ok) throw new Error("Gagal mengambil data anomalies.json statis.");
-                anomaliesData = await aRes.json();
-                
                 // Tarik trends.json
                 const tRes = await fetch('data/trends.json?_t=' + Date.now());
                 if (!tRes.ok) throw new Error("Gagal mengambil data trends.json statis.");
@@ -597,7 +531,7 @@
         // 6. RENDER ENGINE (Client-Side Filtering)
         // =====================================================================
         function renderDashboard() {
-            if (!pricesData || !anomaliesData) {
+            if (!pricesData) {
                 showLoading(false);
                 return;
             }
@@ -625,17 +559,10 @@
             // 1. Render Metrics ringkasan
             updateDashboardMetrics(records, commodityName, unit);
 
-            // 2. Filter anomali relevan dengan komoditas terpilih
-            const tfAnomalies = anomaliesData[activeTimeframe]?.anomalies || [];
-            const activeAnomaliesForComm = tfAnomalies.filter(a => a.commodity_id == commodityId);
+            // 2. Render markers spasial peta
+            renderMapMarkers(records, unit);
 
-            // 3. Render markers spasial peta
-            renderMapMarkers(records, activeAnomaliesForComm, unit);
-
-            // 4. Render anomalies panel
-            renderAnomaliesPanel(activeAnomaliesForComm);
-
-            // 5. Render historical trend chart
+            // 3. Render historical trend chart
             renderHistoricalData(commodityId);
 
             showLoading(false);
@@ -647,12 +574,6 @@
             statMaxMarket.innerText = "Tidak ada lokasi";
             statMin.innerText = "-";
             statMinMarket.innerText = "Tidak ada lokasi";
-            statAnomaliesCount.innerText = "0 Anomali";
-            anomaliesBadge.innerText = "0 Baru";
-            anomaliesBadge.className = "px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[9px] font-bold text-slate-500 font-mono";
-            
-            // Mobile Dot
-            navMobAnomaliesDot.classList.add('hidden');
         }
 
         function updateDashboardMetrics(records, commodityName, unit) {
@@ -677,22 +598,32 @@
             statMinMarket.title = lowestRecord.market_name;
         }
 
-        function renderMapMarkers(records, activeAnomalies, unit) {
+        function renderMapMarkers(records, unit) {
+            const prices = records.map(r => r.price);
+            const count = records.length;
+            const avgVal = prices.reduce((a, b) => a + b, 0) / count;
+            
+            const sqDiffs = prices.map(p => Math.pow(p - avgVal, 2));
+            const variance = sqDiffs.reduce((a, b) => a + b, 0) / count;
+            const stdDev = Math.sqrt(variance);
+
             records.forEach(record => {
                 if (record.latitude === null || record.longitude === null) return;
                 
-                // Cek apakah pasar ini memiliki anomali aktif
-                const isAnomaly = activeAnomalies.some(a => a.market_id == record.market_id);
-                
                 let colorClass = 'bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.65)]';
-                let statusText = 'Harga Stabil';
+                let statusText = 'Harga Wajar';
                 let textColor = 'text-emerald-400';
                 
-                if (isAnomaly) {
-                    const anomalyData = activeAnomalies.find(a => a.market_id == record.market_id);
-                    colorClass = 'bg-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.65)] animate-pulse';
-                    statusText = `Lonjakan! (+${anomalyData.price_increase_pct.toFixed(0)}% vs ${activeTimeframe})`;
-                    textColor = 'text-rose-400';
+                if (stdDev > 0) {
+                    if (record.price > avgVal + stdDev) {
+                        colorClass = 'bg-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.65)]';
+                        statusText = 'Harga Mahal';
+                        textColor = 'text-rose-400';
+                    } else if (record.price < avgVal - stdDev) {
+                        colorClass = 'bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.65)]';
+                        statusText = 'Harga Murah';
+                        textColor = 'text-cyan-400';
+                    }
                 }
 
                 const markerIcon = L.divIcon({
@@ -728,7 +659,7 @@
 
                 const marker = L.marker([record.latitude, record.longitude], { 
                     icon: markerIcon,
-                    isAnomaly: isAnomaly
+                    isMahal: stdDev > 0 && record.price > avgVal + stdDev
                 }).bindPopup(popupContent);
                 
                 markersCluster.addLayer(marker);
@@ -744,80 +675,7 @@
             }
         }
 
-        // =====================================================================
-        // 7. PRICE ANOMALIES LIST HANDLER
-        // =====================================================================
-        function renderAnomaliesPanel(anomalies) {
-            statAnomaliesCount.innerText = `${anomalies.length} Anomali`;
-            
-            const childElements = Array.from(anomaliesContainer.children);
-            childElements.forEach(child => {
-                if (child.id !== 'anomalies-empty') {
-                    child.remove();
-                }
-            });
-
-            if (anomalies.length === 0) {
-                anomaliesEmpty.classList.remove('hidden');
-                anomaliesBadge.innerText = "0 Baru";
-                anomaliesBadge.className = "px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[9px] font-bold text-slate-500 font-mono";
-                navMobAnomaliesDot.classList.add('hidden');
-                return;
-            }
-
-            anomaliesEmpty.classList.add('hidden');
-            
-            anomaliesBadge.innerText = `${anomalies.length} Baru`;
-            anomaliesBadge.className = "px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-[9px] font-bold text-amber-400 font-mono animate-pulse";
-            navMobAnomaliesDot.classList.remove('hidden');
-
-            anomalies.forEach(anomaly => {
-                const card = document.createElement('div');
-                card.className = "glass-card p-3 rounded-xl border border-rose-500/15 bg-rose-500/[0.03] hover:bg-rose-500/[0.08] hover:border-rose-500/35 flex flex-col gap-1 cursor-pointer transition-all duration-200 select-none shadow";
-                
-                card.innerHTML = `
-                    <div class="flex justify-between items-start gap-1">
-                        <span class="font-outfit font-extrabold text-xs text-rose-200 tracking-tight truncate max-w-[130px]" title="${anomaly.market_name}">
-                            ${anomaly.market_name}
-                        </span>
-                        <span class="px-1.5 py-0.5 rounded bg-rose-500/15 border border-rose-500/30 text-[9px] font-extrabold text-rose-400 flex items-center gap-0.5 animate-pulse">
-                            +${anomaly.price_increase_pct.toFixed(0)}%
-                        </span>
-                    </div>
-                    <div class="flex justify-between items-center text-[10px] text-slate-400 mt-1">
-                        <span>Harga Lonjakan:</span>
-                        <span class="font-bold text-rose-300 font-mono">${rupiahFormatter.format(anomaly.current_price)}</span>
-                    </div>
-                    <div class="flex justify-between items-center text-[9px] text-slate-500">
-                        <span>Rerata Baseline:</span>
-                        <span class="font-medium">${rupiahFormatter.format(anomaly.avg_price_7d)}</span>
-                    </div>
-                `;
-
-                card.addEventListener('click', () => {
-                    const marker = markerMap[anomaly.market_id];
-                    
-                    if (window.innerWidth < 768) {
-                        switchTabMobile('map');
-                    } else {
-                        switchTab('map');
-                    }
-
-                    if (marker && anomaly.latitude && anomaly.longitude) {
-                        map.flyTo([anomaly.latitude, anomaly.longitude], 16, {
-                            animate: true,
-                            duration: 1.5
-                        });
-                        
-                        setTimeout(() => {
-                            marker.openPopup();
-                        }, 1600);
-                    }
-                });
-
-                anomaliesContainer.appendChild(card);
-            });
-        }
+        // Anomalies panel helper removed
 
         // =====================================================================
         // 8. TEMPORAL TREND GENERATION
@@ -879,6 +737,10 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
                     plugins: {
                         legend: {
                             display: false
@@ -925,25 +787,8 @@
             });
         }
 
-        // =====================================================================
-        // 9. FILTER & TIMEFRAME BINDINGS
-        // =====================================================================
-        
+        // Filter change bindings
         commoditySelect.addEventListener('change', renderDashboard);
-
-        // Timeframe selector clicks
-        document.querySelectorAll('.tf-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.tf-btn').forEach(b => {
-                    b.className = "tf-btn py-1.5 text-[10px] font-extrabold rounded-lg text-slate-400 hover:text-slate-100 transition duration-150";
-                });
-                
-                e.target.className = "tf-btn py-1.5 text-[10px] font-extrabold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 transition duration-150 shadow-inner";
-                
-                activeTimeframe = e.target.getAttribute('data-tf');
-                renderDashboard();
-            });
-        });
 
         // =====================================================================
         // 10. MOBILE SPECIFIC LOGIC (Navigation)
@@ -951,11 +796,11 @@
         
         const navMobMap = document.getElementById('nav-mob-map');
         const navMobTrend = document.getElementById('nav-mob-trend');
-        const navMobAnomalies = document.getElementById('nav-mob-anomalies');
         const navMobControls = document.getElementById('nav-mob-controls');
 
         function switchTabMobile(tab) {
-            [navMobMap, navMobTrend, navMobAnomalies, navMobControls].forEach(btn => {
+            currentTab = tab;
+            [navMobMap, navMobTrend, navMobControls].forEach(btn => {
                 btn.className = "flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300";
             });
 
@@ -976,14 +821,6 @@
                 panelMainSection.classList.remove('hidden');
                 switchTab('trend');
             } 
-            else if (tab === 'anomalies') {
-                navMobAnomalies.className = "flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300 relative";
-                panelSidebar.classList.remove('hidden');
-                panelSidebar.classList.add('flex-1');
-                
-                sidebarCards[1].classList.remove('hidden');
-                sidebarCards[1].classList.add('flex-1');
-            } 
             else if (tab === 'controls') {
                 navMobControls.className = "flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300";
                 panelSidebar.classList.remove('hidden');
@@ -995,10 +832,11 @@
 
         navMobMap.addEventListener('click', () => switchTabMobile('map'));
         navMobTrend.addEventListener('click', () => switchTabMobile('trend'));
-        navMobAnomalies.addEventListener('click', () => switchTabMobile('anomalies'));
         navMobControls.addEventListener('click', () => switchTabMobile('controls'));
 
         window.addEventListener('resize', () => {
+            if (window.innerWidth === lastWidth) return;
+            lastWidth = window.innerWidth;
             if (window.innerWidth >= 768) {
                 panelSidebar.classList.remove('hidden', 'flex-1');
                 panelMainSection.classList.remove('hidden');
