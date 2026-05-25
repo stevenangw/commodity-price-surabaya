@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pemantauan Harga Pangan Lokal Indonesia</title>
+    <title>PANTAU PANGAN - Sistem Pemantauan Harga Spasial-Temporal</title>
     
     <!-- Google Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,15 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         outfit: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#070a13',
+                            card: 'rgba(15, 23, 42, 0.45)',
+                            border: 'rgba(255, 255, 255, 0.07)',
+                            accent: '#10b981',
+                            glow: 'rgba(16, 185, 129, 0.15)',
+                        }
                     }
                 }
             }
@@ -35,93 +44,277 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0b0f19;
+            background-color: #070a13;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.03) 0px, transparent 50%);
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #0f172a;
+            background: #0b0f19;
         }
         ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 3px;
+            background: #1e293b;
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
+            background: #334155;
+        }
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            background: rgba(15, 23, 42, 0.6);
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
         }
         /* Customizing Leaflet Popups to match dark glassmorphic theme */
         .leaflet-popup-content-wrapper {
-            background: rgba(15, 23, 42, 0.9) !important;
-            backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            background: rgba(11, 15, 25, 0.85) !important;
+            backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
             color: #f8fafc !important;
-            border-radius: 12px !important;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7) !important;
         }
         .leaflet-popup-tip {
-            background: rgba(15, 23, 42, 0.9) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            background: rgba(11, 15, 25, 0.85) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
         }
         .leaflet-container a.leaflet-popup-close-button {
             color: #94a3b8 !important;
-            padding: 8px 8px 0 0 !important;
+            padding: 10px 10px 0 0 !important;
         }
         .leaflet-container a.leaflet-popup-close-button:hover {
-            color: #f8fafc !important;
+            color: #ef4444 !important;
+        }
+        /* Custom map control styles */
+        .leaflet-bar {
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+            border-radius: 8px !important;
+            overflow: hidden;
+        }
+        .leaflet-bar a {
+            background-color: rgba(15, 23, 42, 0.85) !important;
+            backdrop-filter: blur(12px) !important;
+            color: #94a3b8 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            transition: all 0.2s;
+        }
+        .leaflet-bar a:hover {
+            background-color: #10b981 !important;
+            color: #070a13 !important;
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col antialiased">
+<body class="text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
 
     <!-- Header Glassmorphic -->
-    <header class="sticky top-0 z-[1000] border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+    <header class="sticky top-0 z-[1000] border-b border-white/5 bg-brand-dark/60 backdrop-blur-xl px-6 py-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
             <!-- Glowing Circle Logo -->
-            <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-slate-950">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m-3.75-3h.008v.008H12v-.008zM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            <div class="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 text-brand-dark">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
                 </svg>
             </div>
             <div>
-                <h1 class="font-outfit font-bold text-xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">PANTAU PANGAN</h1>
-                <p class="text-[10px] text-slate-400 font-medium tracking-wider -mt-1 uppercase">Sistem Pemantauan Harga Spasial-Temporal</p>
+                <h1 class="font-outfit font-extrabold text-lg tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent uppercase">PANTAU PANGAN</h1>
+                <p class="text-[9px] text-slate-400 font-bold tracking-widest -mt-1 uppercase">Sistem Pemantauan Harga Spasial-Temporal</p>
             </div>
         </div>
         
-        <!-- Live Indicator -->
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] text-emerald-400 font-medium">
-            <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Koneksi Database Aktif (Lenovo S145 Local)
+        <!-- Database Status & System Indicator -->
+        <div class="flex items-center gap-3">
+            <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 border border-white/5 text-[11px] text-emerald-400 font-medium">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Koneksi Database Aktif (Surabaya Local Instance)
+            </div>
         </div>
     </header>
 
-    <!-- Main Layout -->
-    <main class="flex-1 flex flex-col md:flex-row p-6 gap-6 overflow-hidden">
-        
-        <!-- Left Column: Controls & Analytics -->
-        <section class="w-full md:w-80 flex flex-col gap-6 flex-shrink-0">
+    <!-- Top Dashboard Metrics Panel (Hero Section) -->
+    <section class="px-6 pt-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <!-- Control Panel Card -->
-            <div class="bg-slate-950/50 backdrop-blur-md p-5 rounded-2xl border border-slate-800/80 shadow-xl flex flex-col gap-4">
-                <h2 class="font-outfit font-semibold text-base text-slate-200 tracking-wide uppercase flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-emerald-400">
+            <!-- Avg Price Card -->
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group shadow-lg">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all duration-500"></div>
+                <span class="text-xs font-semibold text-slate-400 tracking-wide">Rerata Komoditas</span>
+                <span id="stat-avg" class="font-outfit font-extrabold text-lg sm:text-xl text-slate-100 mt-2 tracking-tight transition-all duration-300">-</span>
+                <span class="text-[10px] text-slate-500 mt-1 flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 text-emerald-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306 8.9-8.91M21.75 8.25v5.5h-5.5" />
+                    </svg>
+                    Skala harga ter-agregasi
+                </span>
+            </div>
+
+            <!-- Highest Market Price Card -->
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group shadow-lg">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-rose-500/10 rounded-full blur-xl group-hover:bg-rose-500/20 transition-all duration-500"></div>
+                <span class="text-xs font-semibold text-slate-400 tracking-wide">Harga Tertinggi</span>
+                <span id="stat-max" class="font-outfit font-extrabold text-lg sm:text-xl text-rose-400 mt-2 tracking-tight transition-all duration-300">-</span>
+                <span id="stat-max-market" class="text-[9px] text-slate-500 mt-1 truncate max-w-full font-medium">Memuat lokasi...</span>
+            </div>
+
+            <!-- Lowest Market Price Card -->
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group shadow-lg">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+                <span class="text-xs font-semibold text-slate-400 tracking-wide">Harga Terendah</span>
+                <span id="stat-min" class="font-outfit font-extrabold text-lg sm:text-xl text-emerald-400 mt-2 tracking-tight transition-all duration-300">-</span>
+                <span id="stat-min-market" class="text-[9px] text-slate-500 mt-1 truncate max-w-full font-medium">Memuat lokasi...</span>
+            </div>
+
+            <!-- Active Anomalies Alert Card -->
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden group shadow-lg border-l-2 border-l-amber-500/50">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all duration-500"></div>
+                <span class="text-xs font-semibold text-slate-400 tracking-wide flex items-center gap-1.5">
+                    Lonjakan Ekstrem
+                </span>
+                <span id="stat-anomalies-count" class="font-outfit font-extrabold text-lg sm:text-xl text-amber-400 mt-2 tracking-tight">0 Anomali</span>
+                <span class="text-[10px] text-amber-500/90 mt-1 font-bold">Kenaikan Harga > 15%</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Main Workspace Layout -->
+    <main class="flex-1 flex flex-col md:flex-row p-6 gap-6 overflow-hidden min-h-0">
+        
+        <!-- Left Section (70% Width): Interactive Tabs Content (Map & Chart) -->
+        <section class="flex-1 flex flex-col gap-4 min-h-[400px] md:min-h-0">
+            
+            <!-- Tabs Navigation Row -->
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                <div class="flex items-center gap-1 bg-slate-950/60 p-1 rounded-xl border border-white/5">
+                    <button id="btn-tab-map" class="px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-2 bg-emerald-500 text-brand-dark shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m-3.75-3h.008v.008H12v-.008zM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        Peta Spasial
+                    </button>
+                    <button id="btn-tab-trend" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-100 transition-all duration-300 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306 8.9-8.91M21.75 8.25v5.5h-5.5" />
+                        </svg>
+                        Grafik Tren Temporal
+                    </button>
+                </div>
+
+                <!-- Active Indicator showing showing details -->
+                <span id="active-info-badge" class="hidden sm:inline-flex items-center px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[10px] text-emerald-400 font-bold font-mono">
+                    Komoditas: Beras Medium
+                </span>
+            </div>
+
+            <!-- Workspace Cards -->
+            <div class="flex-1 glass-card rounded-2xl relative overflow-hidden flex flex-col shadow-2xl min-h-[350px]">
+                
+                <!-- Map Content Panel -->
+                <div id="panel-map" class="absolute inset-0 w-full h-full z-10 flex flex-col">
+                    <div id="map" class="flex-1 w-full h-full bg-brand-dark"></div>
+                    
+                    <!-- Map Legend Hover-Card -->
+                    <div class="absolute bottom-4 left-4 z-[999] glass-card px-4 py-3 rounded-xl shadow-2xl flex flex-col gap-2 pointer-events-auto border border-white/10 max-w-[200px] select-none">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-white/5 pb-1">Kondisi Pasar</span>
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(239,68,68,0.7)]"></div>
+                                <span class="text-[10px] text-slate-300 font-semibold">Mahal (>10% Avg)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.7)]"></div>
+                                <span class="text-[10px] text-slate-300 font-semibold">Wajar (Normal)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.7)]"></div>
+                                <span class="text-[10px] text-slate-300 font-semibold">Murah (&lt;10% Avg)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend Content Panel -->
+                <div id="panel-trend" class="absolute inset-0 w-full h-full z-0 flex flex-col p-6 opacity-0 pointer-events-none transition-opacity duration-300 bg-brand-dark/90 justify-center">
+                    <div class="flex flex-col gap-1 mb-4">
+                        <h3 class="font-outfit font-bold text-base text-slate-200">Perkembangan Harga 30 Hari Terakhir</h3>
+                        <p class="text-xs text-slate-400">Rata-rata kota Surabaya berdasarkan data historis yang dihimpun.</p>
+                    </div>
+                    <div class="flex-1 w-full relative min-h-0 flex items-center justify-center">
+                        <canvas id="trendChart" class="w-full h-full"></canvas>
+                        
+                        <!-- Empty Trend Overlay -->
+                        <div id="trend-empty" class="absolute inset-0 bg-slate-950/80 flex flex-col items-center justify-center gap-2 opacity-0 pointer-events-none rounded-xl transition duration-300">
+                            <span class="text-xs text-slate-400">Data historis tidak mencukupi untuk dirender.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Universal Loading Overlay -->
+                <div id="loading-overlay" class="absolute inset-0 bg-brand-dark/85 backdrop-blur-sm z-[2000] flex flex-col items-center justify-center gap-4 transition-all duration-300 opacity-0 pointer-events-none">
+                    <div class="relative w-12 h-12">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-20"></span>
+                        <div class="w-12 h-12 rounded-full border-4 border-emerald-500/10 border-t-emerald-500 animate-spin"></div>
+                    </div>
+                    <p class="font-outfit font-bold text-slate-300 text-xs tracking-wider uppercase">Mensinkronisasi Data Spasial-Temporal...</p>
+                </div>
+
+                <!-- Universal Empty State Overlay -->
+                <div id="empty-overlay" class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md z-[1500] flex flex-col items-center justify-center gap-4 transition-all duration-300 opacity-0 pointer-events-none p-6 text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-white/5 flex items-center justify-center shadow-[0_0_20px_rgba(234,179,8,0.15)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-7 h-7 text-yellow-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-outfit font-extrabold text-slate-200 text-base uppercase tracking-wide">Data Pemantauan Kosong</h3>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed -mt-1">Pemantauan harga belum dijalankan atau data kosong pada tanggal ini. Silakan jalankan scraper:</p>
+                    <div class="px-4 py-2 rounded-xl bg-slate-950 border border-white/5 text-[10px] text-emerald-400 font-mono shadow-inner select-all cursor-pointer font-bold" title="Klik untuk menyalin">
+                        python -m scraper.main
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Right Section (30% Width): Controls & Real-Time Price Anomalies List -->
+        <section id="panel-sidebar" class="w-full md:w-80 flex flex-col gap-6 flex-shrink-0 md:min-h-0 min-h-[300px]">
+            
+            <!-- Controls Card -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col gap-4 shadow-xl border border-white/5 relative">
+                <h2 class="font-outfit font-extrabold text-xs text-slate-300 tracking-widest uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-emerald-400">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                     </svg>
-                    Panel Kontrol
+                    Panel Filter
                 </h2>
                 
                 <!-- Dropdown Komoditas -->
                 <div class="flex flex-col gap-1.5">
-                    <label for="commodity-select" class="text-xs font-semibold text-slate-400">Pilih Komoditas Pangan</label>
-                    <select id="commodity-select" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2.5 text-sm text-slate-200 font-medium focus:outline-none focus:border-emerald-500 transition duration-250 cursor-pointer">
+                    <label for="commodity-select" class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Komoditas Utama</label>
+                    <select id="commodity-select" class="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2.5 text-xs text-slate-200 font-bold focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 transition-all cursor-pointer">
                         <option value="1" selected>Beras Medium</option>
                         <option value="2">Cabai Rawit Merah</option>
                         <option value="3">Bawang Merah</option>
@@ -130,89 +323,39 @@
                     </select>
                 </div>
                 
-                <!-- Filter Tanggal (Static Info/Input) -->
+                <!-- Filter Tanggal (Active Calendar Date Picker) -->
                 <div class="flex flex-col gap-1.5">
-                    <label for="date-info" class="text-xs font-semibold text-slate-400">Tanggal Pemantauan</label>
-                    <input type="text" id="date-info" disabled class="w-full bg-slate-900/50 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-500 font-semibold cursor-not-allowed" value="Hari Ini (Data Terbaru)">
+                    <label for="date-picker" class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Tanggal Data</label>
+                    <input type="date" id="date-picker" class="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2.5 text-xs text-slate-200 font-bold focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 transition-all cursor-pointer" style="color-scheme: dark;">
                 </div>
             </div>
 
-            <!-- Legend & Stats Card -->
-            <div class="bg-slate-950/50 backdrop-blur-md p-5 rounded-2xl border border-slate-800/80 shadow-xl flex flex-col gap-4 flex-1">
-                <h2 class="font-outfit font-semibold text-base text-slate-200 tracking-wide uppercase flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-emerald-400">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
-                    </svg>
-                    Statistik & Legenda
-                </h2>
-                
-                <!-- Stats Area -->
-                <div class="flex flex-col gap-3 py-2 border-b border-slate-800/80">
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="text-slate-400 font-medium">Rata-Rata Nasional:</span>
-                        <span id="stat-avg" class="font-bold text-slate-200 font-outfit text-sm">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="text-slate-400 font-medium">Harga Tertinggi:</span>
-                        <span id="stat-max" class="font-bold text-red-400 font-outfit text-sm">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="text-slate-400 font-medium">Harga Terendah:</span>
-                        <span id="stat-min" class="font-bold text-emerald-400 font-outfit text-sm">-</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="text-slate-400 font-medium">Pasar Dipantau:</span>
-                        <span id="stat-count" class="font-bold text-slate-200 font-outfit text-sm">-</span>
-                    </div>
+            <!-- Price Anomalies List Card -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col gap-4 shadow-xl border border-white/5 flex-1 min-h-0 relative">
+                <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                    <h2 class="font-outfit font-extrabold text-xs text-slate-300 tracking-widest uppercase flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-amber-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                        </svg>
+                        Lonjakan Pasar
+                    </h2>
+                    <span id="anomalies-badge" class="px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-[9px] font-bold text-amber-400 font-mono">
+                        0 Baru
+                    </span>
                 </div>
 
-                <!-- Legend Scale -->
-                <div class="flex flex-col gap-2.5 pt-2">
-                    <span class="text-xs font-semibold text-slate-400">Skala Status Harga Pasar</span>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex items-center gap-3">
-                            <div class="w-4 h-4 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)] border border-white/20"></div>
-                            <span class="text-xs text-slate-300 font-medium">Mahal (> 10% Rata-Rata)</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-4 h-4 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)] border border-white/20"></div>
-                            <span class="text-xs text-slate-300 font-medium">Wajar (Normal Deviasi)</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)] border border-white/20"></div>
-                            <span class="text-xs text-slate-300 font-medium">Murah (< 10% Rata-Rata)</span>
-                        </div>
+                <!-- Scrollable Anomalies Area -->
+                <div id="anomalies-container" class="flex-1 overflow-y-auto flex flex-col gap-2.5 max-h-[220px] md:max-h-none pr-1">
+                    
+                    <!-- Empty State for Anomalies -->
+                    <div id="anomalies-empty" class="h-full flex flex-col items-center justify-center text-center p-4 gap-2 text-slate-500 select-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                        </svg>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Harga Stabil</span>
+                        <p class="text-[9px] text-slate-600 max-w-[150px] leading-relaxed">Seluruh pasar beroperasi dalam deviasi harga wajar harian.</p>
                     </div>
-                </div>
-            </div>
-            
-        </section>
 
-        <!-- Right Column: Interactive Map -->
-        <section class="flex-1 min-h-[400px] md:min-h-0 bg-slate-950/50 backdrop-blur-md rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden relative flex flex-col">
-            
-            <!-- Map Container -->
-            <div id="map" class="flex-1 w-full z-10"></div>
-            
-            <!-- Loading Overlay -->
-            <div id="loading-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-[2000] flex flex-col items-center justify-center gap-4 transition duration-300 opacity-0 pointer-events-none">
-                <!-- Glowing Spinner -->
-                <div class="w-12 h-12 rounded-full border-4 border-emerald-500/20 border-t-emerald-500 animate-spin"></div>
-                <p class="font-outfit font-medium text-slate-300 text-sm tracking-wide">Menarik Data Spasial Pangan...</p>
-            </div>
-
-            <!-- Empty State Overlay -->
-            <div id="empty-overlay" class="absolute inset-0 bg-slate-950/90 backdrop-blur-md z-[1500] flex flex-col items-center justify-center gap-5 transition duration-300 opacity-0 pointer-events-none p-6 text-center">
-                <!-- Glowing Info Icon -->
-                <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800/80 flex items-center justify-center shadow-[0_0_15px_rgba(234,179,8,0.2)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-yellow-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                    </svg>
-                </div>
-                <h3 class="font-outfit font-bold text-slate-200 text-lg">Belum Ada Data Harga Tersedia</h3>
-                <p class="text-xs text-slate-400 max-w-sm leading-relaxed -mt-2">Database kosong atau pemantauan harga belum dijalankan hari ini. Silakan jalankan modul scraper terlebih dahulu untuk mengisi data spasial.</p>
-                <div class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-[10px] text-slate-400 font-mono shadow-inner select-all cursor-pointer" title="Klik untuk menyalin">
-                    python -m scraper.main
                 </div>
             </div>
             
@@ -220,44 +363,119 @@
 
     </main>
 
+    <!-- Mobile Navigation Tab Bar (Sticky Bottom Nav Bar for <768px screens) -->
+    <nav class="md:hidden sticky bottom-0 z-[1999] border-t border-white/5 bg-brand-dark/95 backdrop-blur-xl px-4 py-2 flex items-center justify-around shadow-2xl">
+        <button id="nav-mob-map" class="flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m-3.75-3h.008v.008H12v-.008zM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <span class="text-[9px]">Peta Spasial</span>
+        </button>
+        <button id="nav-mob-trend" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306 8.9-8.91M21.75 8.25v5.5h-5.5" />
+            </svg>
+            <span class="text-[9px]">Tren</span>
+        </button>
+        <button id="nav-mob-anomalies" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+            <span class="text-[9px]">Anomali</span>
+            <span id="nav-mob-anomalies-dot" class="absolute top-0 right-2 w-1.5 h-1.5 bg-amber-500 rounded-full hidden"></span>
+        </button>
+        <button id="nav-mob-controls" class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+            </svg>
+            <span class="text-[9px]">Filter</span>
+        </button>
+    </nav>
+
     <!-- Footer -->
-    <footer class="px-6 py-4 border-t border-slate-800/80 bg-slate-950/40 text-center text-xs text-slate-500 font-medium tracking-wide">
-        &copy; 2026 Proyek Pantau Pangan Lokal Indonesia. Sistem berjalan lokal pada Lenovo S145 (Resource-Optimized).
+    <footer class="px-6 py-4 border-t border-white/5 bg-brand-dark/40 text-center text-[10px] text-slate-500 font-semibold tracking-wider uppercase">
+        &copy; 2026 Proyek Pantau Pangan Lokal Indonesia. Berjalan pada Surabaya Local Instance (Resource-Optimized).
     </footer>
 
-    <!-- Leaflet Map Rendering Script -->
+    <!-- Frontend Interactive Javascript Engine -->
     <script>
-        // 1. Inisialisasi Peta Spasial Indonesia (Koordinat Pusat Kepulauan Nusantara)
-        const map = L.map('map', {
-            zoomControl: false // Kita pindahkan tombol zoom ke kanan bawah agar estetik
-        }).setView([-2.5489, 118.0149], 5);
+        // =====================================================================
+        // 1. STATE & GLOBAL VARIABLES
+        // =====================================================================
+        let currentTab = 'map'; // 'map' | 'trend'
+        let selectedCommodityId = 1;
+        let selectedDate = '';
+        let trendChartInstance = null;
+        let markerMap = {}; // Untuk mengaitkan market_id dengan objek marker Leaflet
+
+        // Dom Elements
+        const btnTabMap = document.getElementById('btn-tab-map');
+        const btnTabTrend = document.getElementById('btn-tab-trend');
+        const panelMap = document.getElementById('panel-map');
+        const panelTrend = document.getElementById('panel-trend');
         
-        // Pindahkan posisi zoom control
+        const commoditySelect = document.getElementById('commodity-select');
+        const datePicker = document.getElementById('date-picker');
+        
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const emptyOverlay = document.getElementById('empty-overlay');
+        const activeInfoBadge = document.getElementById('active-info-badge');
+        
+        // Metrics Dom
+        const statAvg = document.getElementById('stat-avg');
+        const statMax = document.getElementById('stat-max');
+        const statMaxMarket = document.getElementById('stat-max-market');
+        const statMin = document.getElementById('stat-min');
+        const statMinMarket = document.getElementById('stat-min-market');
+        const statAnomaliesCount = document.getElementById('stat-anomalies-count');
+        
+        // Anomalies Dom
+        const anomaliesContainer = document.getElementById('anomalies-container');
+        const anomaliesEmpty = document.getElementById('anomalies-empty');
+        const anomaliesBadge = document.getElementById('anomalies-badge');
+        const navMobAnomaliesDot = document.getElementById('nav-mob-anomalies-dot');
+        
+        // Mobile Sidebar Reference
+        const panelSidebar = document.getElementById('panel-sidebar');
+        const panelMainSection = document.querySelector('main > section:first-of-type');
+
+        // Formatter Rupiah
+        const rupiahFormatter = new Intl.NumberFormat('id-ID', { 
+            style: 'currency', 
+            currency: 'IDR', 
+            maximumFractionDigits: 0 
+        });
+
+        // =====================================================================
+        // 2. INVENTARISASI LEAFLET PETA
+        // =====================================================================
+        const map = L.map('map', {
+            zoomControl: false,
+            fadeAnimation: true
+        }).setView([-7.2575, 112.7521], 12); // Definisikan fokus ke Kota Surabaya secara default
+
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-        // 2. Set Tile Map Tema Gelap Premium (CartoDB Dark Matter)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap &copy; CARTO',
+            attribution: '&copy; CARTO &copy; OpenStreetMap',
             subdomains: 'abcd',
             maxZoom: 20
         }).addTo(map);
 
-        // 3. Inisialisasi Marker Cluster Group dengan Kustomisasi Tampilan Klaster
         const markersCluster = L.markerClusterGroup({
             showCoverageOnHover: false,
             zoomToBoundsOnClick: true,
-            maxClusterRadius: 40,
+            maxClusterRadius: 35,
             iconCreateFunction: function(cluster) {
                 const childCount = cluster.getChildCount();
-                let c = ' bg-emerald-500/20 text-emerald-400 ring-2 ring-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.4)]';
-                if (childCount > 20) {
-                    c = ' bg-red-500/20 text-red-400 ring-2 ring-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.4)]';
-                } else if (childCount > 8) {
-                    c = ' bg-yellow-500/20 text-yellow-400 ring-2 ring-yellow-500/50 shadow-[0_0_15px_rgba(234,179,8,0.4)]';
+                let c = ' bg-emerald-500/20 text-emerald-400 ring-2 ring-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.3)]';
+                if (childCount > 15) {
+                    c = ' bg-rose-500/20 text-rose-400 ring-2 ring-rose-500/40 shadow-[0_0_20px_rgba(239,68,68,0.3)]';
+                } else if (childCount > 6) {
+                    c = ' bg-yellow-500/20 text-yellow-400 ring-2 ring-yellow-500/40 shadow-[0_0_20px_rgba(234,179,8,0.3)]';
                 }
-                
                 return new L.DivIcon({ 
-                    html: `<div class="w-10 h-10 rounded-full flex items-center justify-center font-outfit font-bold text-xs backdrop-blur-md ${c}">${childCount}</div>`, 
+                    html: `<div class="w-10 h-10 rounded-full flex items-center justify-center font-outfit font-extrabold text-xs backdrop-blur-md ${c}">${childCount}</div>`, 
                     className: 'custom-cluster-icon', 
                     iconSize: new L.Point(40, 40) 
                 });
@@ -265,17 +483,46 @@
         });
         map.addLayer(markersCluster);
 
-        // 4. Dom Selectors & State
-        const commoditySelect = document.getElementById('commodity-select');
-        const loadingOverlay = document.getElementById('loading-overlay');
-        const emptyOverlay = document.getElementById('empty-overlay');
-        const statAvg = document.getElementById('stat-avg');
-        const statMax = document.getElementById('stat-max');
-        const statMin = document.getElementById('stat-min');
-        const statCount = document.getElementById('stat-count');
+        // =====================================================================
+        // 3. LOGIKA INTERAKSI TAB & NAVIGATION UTAMA
+        // =====================================================================
+        
+        function switchTab(tab) {
+            currentTab = tab;
+            if (tab === 'map') {
+                btnTabMap.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-2 bg-emerald-500 text-brand-dark shadow-[0_0_12px_rgba(16,185,129,0.3)]";
+                btnTabTrend.className = "px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-100 transition-all duration-300 flex items-center gap-2";
+                
+                panelMap.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+                panelMap.classList.add('opacity-100', 'z-10');
+                panelTrend.classList.remove('opacity-100', 'z-10');
+                panelTrend.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+                
+                // Minta Leaflet meng-kalkulasi ulang lebar petanya setelah tab aktif
+                setTimeout(() => map.invalidateSize(), 200);
+            } else {
+                btnTabTrend.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-2 bg-emerald-500 text-brand-dark shadow-[0_0_12px_rgba(16,185,129,0.3)]";
+                btnTabMap.className = "px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-100 transition-all duration-300 flex items-center gap-2";
+                
+                panelTrend.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+                panelTrend.classList.add('opacity-100', 'z-10');
+                panelMap.classList.remove('opacity-100', 'z-10');
+                panelMap.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+                
+                // Render Ulang chart agar proporsional
+                if (trendChartInstance) {
+                    setTimeout(() => trendChartInstance.resize(), 100);
+                }
+            }
+        }
 
-        // Helper Tampilkan/Sembunyikan Loading
-        function toggleLoading(show) {
+        btnTabMap.addEventListener('click', () => switchTab('map'));
+        btnTabTrend.addEventListener('click', () => switchTab('trend'));
+
+        // =====================================================================
+        // 4. OVERLAY & SPINNER CONTROLLERS
+        // =====================================================================
+        function showLoading(show) {
             if (show) {
                 loadingOverlay.classList.remove('opacity-0', 'pointer-events-none');
                 loadingOverlay.classList.add('opacity-100');
@@ -285,8 +532,7 @@
             }
         }
 
-        // Helper Tampilkan/Sembunyikan Empty State
-        function toggleEmptyState(show) {
+        function showEmptyOverlay(show) {
             if (show) {
                 emptyOverlay.classList.remove('opacity-0', 'pointer-events-none');
                 emptyOverlay.classList.add('opacity-100');
@@ -296,134 +542,493 @@
             }
         }
 
-        // 5. Fungsi Utama Mengambil & Merender Data Spasial
-        async function fetchAndRenderData(commodityId) {
-            toggleLoading(true);
+        // =====================================================================
+        // 5. ASYNC DATA FETCHING ENGINE
+        // =====================================================================
+        
+        // A. Tarik & Gambar Data Peta (Latest)
+        async function loadSpatialData() {
+            showLoading(true);
             markersCluster.clearLayers();
-            
+            markerMap = {}; // Reset map marker references
+
+            let url = `/api/v1/prices/latest?commodity_id=${selectedCommodityId}`;
+            if (selectedDate) {
+                url += `&price_date=${selectedDate}`;
+            }
+
             try {
-                // Tembak endpoint asinkron FastAPI
-                const response = await fetch(`/api/v1/prices/latest?commodity_id=${commodityId}`);
-                if (!response.ok) throw new Error("Gagal memuat data dari API.");
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Gagal mengambil data spasial terbaru.");
                 
-                const data = await response.json();
+                const data = await res.json();
+                
+                // Sinkronisasikan input tanggal ke tanggal data aktual jika sebelumnya kosong
+                if (!selectedDate && data.target_date) {
+                    selectedDate = data.target_date;
+                    datePicker.value = selectedDate;
+                }
+
                 const records = data.records;
-                
-                if (records.length === 0) {
-                    statAvg.innerText = "-";
-                    statMax.innerText = "-";
-                    statMin.innerText = "-";
-                    statCount.innerText = "0";
-                    toggleEmptyState(true); // Aktifkan Empty State Overlay
-                    toggleLoading(false);
+                if (!records || records.length === 0) {
+                    showEmptyOverlay(true);
+                    resetMetrics();
+                    showLoading(false);
                     return;
                 }
-                
-                // Matikan Empty State jika data sukses dimuat
-                toggleEmptyState(false);
 
-                // Kalkulasi Rata-Rata, Max, dan Min Harga untuk skala deviasi
-                const prices = records.map(r => r.price);
-                const count = records.length;
-                const minVal = Math.min(...prices);
-                const maxVal = Math.max(...prices);
-                const avgVal = prices.reduce((a, b) => a + b, 0) / count;
-                
-                // Format IDR Rupiah
-                const formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 });
-                
-                // Render Statistik Dashboard
-                statAvg.innerText = `${formatter.format(avgVal)} / ${data.records[0].unit}`;
-                statCount.innerText = count.toString();
-                statMax.innerText = formatter.format(maxVal);
-                statMin.innerText = formatter.format(minVal);
-
-                // Buat titik-titik pin pasar dengan warna deviasi
-                records.forEach(record => {
-                    if (record.latitude === null || record.longitude === null) return;
-                    
-                    const price = record.price;
-                    const deviation = (price - avgVal) / avgVal;
-                    
-                    // Skala Warna: Merah (>10% Rata-rata), Hijau (<-10% Rata-rata), Kuning (Normal)
-                    let statusColorClass = 'bg-yellow-500 shadow-[0_0_12px_rgba(234,179,8,0.7)]';
-                    let statusText = 'Harga Wajar';
-                    let textColor = 'text-yellow-400';
-                    
-                    if (deviation > 0.1) {
-                        statusColorClass = 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.7)]';
-                        statusText = 'Harga Mahal';
-                        textColor = 'text-red-400';
-                    } else if (deviation < -0.1) {
-                        statusColorClass = 'bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.7)]';
-                        statusText = 'Harga Murah';
-                        textColor = 'text-emerald-400';
-                    }
-
-                    // Buat custom circular pulsing pin HTML/Tailwind
-                    const customIcon = L.divIcon({
-                        html: `<div class="relative flex items-center justify-center w-6 h-6">
-                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-40 ${statusColorClass}"></span>
-                                  <span class="relative inline-flex rounded-full h-4.5 w-4.5 border border-white/30 ${statusColorClass}"></span>
-                               </div>`,
-                        className: 'custom-marker',
-                        iconSize: [24, 24],
-                        iconAnchor: [12, 12]
-                    });
-
-                    // Buat Popup interaktif tema gelap
-                    const popupContent = `
-                        <div class="flex flex-col gap-2 p-1 font-sans">
-                            <div class="flex justify-between items-start gap-3">
-                                <span class="font-outfit font-bold text-slate-100 text-sm tracking-tight">${record.market_name}</span>
-                                <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 font-semibold tracking-wider uppercase">${record.market_type}</span>
-                            </div>
-                            <div class="h-[1px] w-full bg-slate-800"></div>
-                            <div class="flex justify-between items-center mt-1">
-                                <span class="text-xs text-slate-400 font-medium">Harga Hari Ini:</span>
-                                <span class="font-outfit font-bold text-slate-100 text-sm">${formatter.format(price)} / ${record.unit}</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-xs text-slate-400 font-medium">Status Pasar:</span>
-                                <span class="text-xs font-bold ${textColor}">${statusText}</span>
-                            </div>
-                            <div class="flex justify-between items-center text-[10px] text-slate-500 font-semibold mt-1">
-                                <span>Update: ${new Date(record.price_date).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
-                            </div>
-                        </div>
-                    `;
-
-                    // Tambahkan marker ke cluster
-                    const marker = L.marker([record.latitude, record.longitude], { icon: customIcon })
-                                    .bindPopup(popupContent);
-                    
-                    markersCluster.addLayer(marker);
-                });
-
-                // Set zoom peta agar fokus merangkul seluruh titik koordinat pasar secara pas
-                if (records.length > 0) {
-                    const bounds = markersCluster.getBounds();
-                    if (bounds.isValid()) {
-                        map.fitBounds(bounds, { padding: [50, 50] });
-                    }
-                }
+                showEmptyOverlay(false);
+                updateDashboardMetrics(records, data.commodity_name, records[0].unit);
+                renderMapMarkers(records, data.commodity_name, records[0].unit);
 
             } catch (err) {
-                console.error("Gagal menarik data:", err);
-                alert("Koneksi gagal atau database kosong pada Lenovo S145.");
+                console.error("Spatial Fetch Error:", err);
             } finally {
-                toggleLoading(false);
+                showLoading(false);
             }
         }
 
-        // 6. Registrasi Event Listeners
+        // B. Tarik & Gambar Grafik Tren Historis (30 Hari)
+        async function loadHistoricalData() {
+            const url = `/api/v1/prices/trend?commodity_id=${selectedCommodityId}`;
+            const trendEmpty = document.getElementById('trend-empty');
+            
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Gagal mengambil data tren historis.");
+                
+                const data = await res.json();
+                const trend = data.trend;
+
+                if (!trend || trend.length === 0) {
+                    trendEmpty.classList.remove('opacity-0', 'pointer-events-none');
+                    trendEmpty.classList.add('opacity-100');
+                    return;
+                }
+                
+                trendEmpty.classList.remove('opacity-100');
+                trendEmpty.classList.add('opacity-0', 'pointer-events-none');
+                
+                renderTrendChart(trend, data.commodity_name);
+
+            } catch (err) {
+                console.error("Trend Fetch Error:", err);
+            }
+        }
+
+        // C. Tarik & Gambar Deteksi Anomali Lonjakan
+        async function loadAnomalies() {
+            let url = `/api/v1/prices/anomalies`;
+            if (selectedDate) {
+                url += `?price_date=${selectedDate}`;
+            }
+
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Gagal memuat deteksi anomali.");
+
+                const data = await res.json();
+                const anomalies = data.anomalies || [];
+                
+                // Cari anomali yang relevan dengan komoditas terpilih
+                const filteredAnomalies = anomalies.filter(a => a.commodity_id == selectedCommodityId);
+                
+                renderAnomaliesPanel(filteredAnomalies);
+
+            } catch (err) {
+                console.error("Anomalies Fetch Error:", err);
+            }
+        }
+
+        // =====================================================================
+        // 6. DASHBOARD METRICS & PANEL UTILITIES
+        // =====================================================================
+        
+        function resetMetrics() {
+            statAvg.innerText = "-";
+            statMax.innerText = "-";
+            statMaxMarket.innerText = "Tidak ada lokasi";
+            statMin.innerText = "-";
+            statMinMarket.innerText = "Tidak ada lokasi";
+            statAnomaliesCount.innerText = "0 Anomali";
+            anomaliesBadge.innerText = "0 Baru";
+            anomaliesBadge.className = "px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[9px] font-bold text-slate-500 font-mono";
+            
+            // Mobile Dot
+            navMobAnomaliesDot.classList.add('hidden');
+        }
+
+        function updateDashboardMetrics(records, commodityName, unit) {
+            activeInfoBadge.innerText = `Komoditas: ${commodityName}`;
+
+            const prices = records.map(r => r.price);
+            const count = records.length;
+            const avgVal = prices.reduce((a, b) => a + b, 0) / count;
+            
+            // Cari objek record tertinggi & terendah
+            const sortedRecords = [...records].sort((a,b) => b.price - a.price);
+            const highestRecord = sortedRecords[0];
+            const lowestRecord = sortedRecords[sortedRecords.length - 1];
+
+            // Render
+            statAvg.innerText = `${rupiahFormatter.format(avgVal)} / ${unit}`;
+            
+            statMax.innerText = rupiahFormatter.format(highestRecord.price);
+            statMaxMarket.innerText = highestRecord.market_name;
+            statMaxMarket.title = highestRecord.market_name;
+
+            statMin.innerText = rupiahFormatter.format(lowestRecord.price);
+            statMinMarket.innerText = lowestRecord.market_name;
+            statMinMarket.title = lowestRecord.market_name;
+        }
+
+        function renderMapMarkers(records, commodityName, unit) {
+            const prices = records.map(r => r.price);
+            const count = records.length;
+            const avgVal = prices.reduce((a, b) => a + b, 0) / count;
+
+            records.forEach(record => {
+                if (record.latitude === null || record.longitude === null) return;
+                
+                const price = record.price;
+                const deviation = (price - avgVal) / avgVal;
+                
+                let colorClass = 'bg-yellow-500 shadow-[0_0_12px_rgba(234,179,8,0.65)]';
+                let statusText = 'Harga Wajar';
+                let textColor = 'text-yellow-400';
+                
+                if (deviation > 0.1) {
+                    colorClass = 'bg-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.65)]';
+                    statusText = 'Harga Mahal';
+                    textColor = 'text-rose-400';
+                } else if (deviation < -0.1) {
+                    colorClass = 'bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.65)]';
+                    statusText = 'Harga Murah';
+                    textColor = 'text-emerald-400';
+                }
+
+                // custom pulsing HTML/Tailwind icon
+                const markerIcon = L.divIcon({
+                    html: `<div class="relative flex items-center justify-center w-6 h-6">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-30 ${colorClass}"></span>
+                              <span class="relative inline-flex rounded-full h-4 w-4 border border-white/20 ${colorClass}"></span>
+                           </div>`,
+                    className: 'custom-pangan-marker',
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+
+                const popupContent = `
+                    <div class="flex flex-col gap-2 p-1 font-sans">
+                        <div class="flex justify-between items-start gap-3">
+                            <span class="font-outfit font-bold text-slate-100 text-sm tracking-tight">${record.market_name}</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 font-bold uppercase tracking-wider">${record.market_type}</span>
+                        </div>
+                        <div class="h-[1px] w-full bg-white/5"></div>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-slate-400 font-medium">Harga Spasial:</span>
+                            <span class="font-outfit font-extrabold text-slate-100 text-sm">${rupiahFormatter.format(price)} / ${unit}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400 font-medium">Deviasi Rerata:</span>
+                            <span class="text-xs font-bold ${textColor}">${statusText} (${(deviation * 100).toFixed(1)}%)</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[9px] text-slate-500 font-bold mt-1 uppercase">
+                            <span>Update: ${new Date(record.price_date).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
+                        </div>
+                    </div>
+                `;
+
+                const marker = L.marker([record.latitude, record.longitude], { icon: markerIcon })
+                                .bindPopup(popupContent);
+                
+                markersCluster.addLayer(marker);
+                markerMap[record.market_id] = marker; // Simpan referensi ke map marker map
+            });
+
+            // fit bounds
+            if (records.length > 0) {
+                const bounds = markersCluster.getBounds();
+                if (bounds.isValid()) {
+                    map.fitBounds(bounds, { padding: [40, 40] });
+                }
+            }
+        }
+
+        // =====================================================================
+        // 7. TEMPORAL CHART RENDERING (Chart.js)
+        // =====================================================================
+        function renderTrendChart(trendData, commodityName) {
+            const ctx = document.getElementById('trendChart').getContext('2d');
+            
+            // Reset Chart Instance
+            if (trendChartInstance) {
+                trendChartInstance.destroy();
+            }
+
+            const dates = trendData.map(t => {
+                return new Date(t.price_date).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'short'
+                });
+            });
+            const prices = trendData.map(t => t.avg_price);
+
+            // Create gradient neon fill
+            const chartGlow = ctx.createLinearGradient(0, 0, 0, 300);
+            chartGlow.addColorStop(0, 'rgba(16, 185, 129, 0.25)');
+            chartGlow.addColorStop(1, 'rgba(16, 185, 129, 0)');
+
+            trendChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: `Rerata Harga ${commodityName} (Rp)`,
+                        data: prices,
+                        borderColor: '#10b981',
+                        borderWidth: 3.5,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#070a13',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        tension: 0.35, // Smooth Bezier curves
+                        fill: true,
+                        backgroundColor: chartGlow,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(11, 15, 25, 0.9)',
+                            titleFont: { family: 'Outfit', weight: 'bold', size: 12 },
+                            bodyFont: { family: 'Inter', size: 12 },
+                            borderColor: 'rgba(255, 255, 255, 0.08)',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return `Harga: ${rupiahFormatter.format(context.parsed.y)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                color: '#64748b',
+                                font: { size: 9, weight: 'bold' }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.04)',
+                            },
+                            ticks: {
+                                color: '#64748b',
+                                font: { size: 9, weight: 'bold' },
+                                callback: function(value) {
+                                    return rupiahFormatter.format(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // =====================================================================
+        // 8. PRICE ANOMALIES LIST HANDLER
+        // =====================================================================
+        function renderAnomaliesPanel(anomalies) {
+            statAnomaliesCount.innerText = `${anomalies.length} Anomali`;
+            
+            // Hapus isi sebelumnya kecuali template empty state
+            const childElements = Array.from(anomaliesContainer.children);
+            childElements.forEach(child => {
+                if (child.id !== 'anomalies-empty') {
+                    child.remove();
+                }
+            });
+
+            if (anomalies.length === 0) {
+                anomaliesEmpty.classList.remove('hidden');
+                anomaliesBadge.innerText = "0 Baru";
+                anomaliesBadge.className = "px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[9px] font-bold text-slate-500 font-mono";
+                navMobAnomaliesDot.classList.add('hidden');
+                return;
+            }
+
+            anomaliesEmpty.classList.add('hidden');
+            
+            // Update badge info
+            anomaliesBadge.innerText = `${anomalies.length} Baru`;
+            anomaliesBadge.className = "px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-[9px] font-bold text-amber-400 font-mono animate-pulse";
+            navMobAnomaliesDot.classList.remove('hidden');
+
+            // Render daftar kartu anomali
+            anomalies.forEach(anomaly => {
+                const card = document.createElement('div');
+                card.className = "glass-card p-3 rounded-xl border border-rose-500/15 bg-rose-500/[0.03] hover:bg-rose-500/[0.08] hover:border-rose-500/35 flex flex-col gap-1 cursor-pointer transition-all duration-200 select-none shadow";
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start gap-1">
+                        <span class="font-outfit font-extrabold text-xs text-rose-200 tracking-tight truncate max-w-[130px]" title="${anomaly.market_name}">
+                            ${anomaly.market_name}
+                        </span>
+                        <span class="px-1.5 py-0.5 rounded bg-rose-500/15 border border-rose-500/30 text-[9px] font-extrabold text-rose-400 flex items-center gap-0.5 animate-pulse">
+                            +${anomaly.price_increase_pct.toFixed(0)}%
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-slate-400 mt-1">
+                        <span>Harga Lonjakan:</span>
+                        <span class="font-bold text-rose-300 font-mono">${rupiahFormatter.format(anomaly.current_price)}</span>
+                    </div>
+                    <div class="flex justify-between items-center text-[9px] text-slate-500">
+                        <span>Rerata 7 Hari:</span>
+                        <span class="font-medium">${rupiahFormatter.format(anomaly.avg_price_7d)}</span>
+                    </div>
+                `;
+
+                // Interaktivitas klik: Pindahkan peta "Fly To" ke lokasi koordinat pasar bersangkutan
+                card.addEventListener('click', () => {
+                    const marker = markerMap[anomaly.market_id];
+                    
+                    // Jika di mobile, pindahkan tab ke map terlebih dahulu secara mulus
+                    if (window.innerWidth < 768) {
+                        switchTabMobile('map');
+                    } else {
+                        switchTab('map');
+                    }
+
+                    if (marker && anomaly.latitude && anomaly.longitude) {
+                        map.flyTo([anomaly.latitude, anomaly.longitude], 16, {
+                            animate: true,
+                            duration: 1.5
+                        });
+                        
+                        // Tunggu gerakan terbang selesai lalu buka pop-up marker pasar
+                        setTimeout(() => {
+                            marker.openPopup();
+                        }, 1600);
+                    }
+                });
+
+                anomaliesContainer.appendChild(card);
+            });
+        }
+
+        // =====================================================================
+        // 9. EVENT BINDINGS & SYNCHRONIZER
+        // =====================================================================
+        
+        async function synchronizeAllViews() {
+            await loadSpatialData(); // latest prices
+            loadAnomalies();         // anomaly detection
+            loadHistoricalData();    // trend graphs
+        }
+
         commoditySelect.addEventListener('change', (e) => {
-            fetchAndRenderData(e.target.value);
+            selectedCommodityId = parseInt(e.target.value);
+            synchronizeAllViews();
         });
 
-        // Pemuatan data pertama kali saat halaman dibuka (Default: Beras Medium, ID = 1)
+        datePicker.addEventListener('change', (e) => {
+            selectedDate = e.target.value;
+            synchronizeAllViews();
+        });
+
+        // =====================================================================
+        // 10. MOBILE SPECIFIC LOGIC (Navigation and View switching)
+        // =====================================================================
+        
+        const navMobMap = document.getElementById('nav-mob-map');
+        const navMobTrend = document.getElementById('nav-mob-trend');
+        const navMobAnomalies = document.getElementById('nav-mob-anomalies');
+        const navMobControls = document.getElementById('nav-mob-controls');
+
+        function switchTabMobile(tab) {
+            // Reset mobile buttons style
+            [navMobMap, navMobTrend, navMobAnomalies, navMobControls].forEach(btn => {
+                btn.className = "flex flex-col items-center gap-1 text-slate-500 hover:text-slate-200 transition-all duration-300";
+            });
+
+            // 1. Matikan seluruh section di layar kecil secara aman
+            panelSidebar.classList.add('hidden');
+            panelSidebar.classList.remove('flex-1');
+            panelMainSection.classList.add('hidden');
+            
+            // Reset Sidebar Kontainer
+            const sidebarCards = Array.from(panelSidebar.children);
+            sidebarCards.forEach(c => c.classList.add('hidden'));
+
+            if (tab === 'map') {
+                navMobMap.className = "flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300";
+                panelMainSection.classList.remove('hidden');
+                switchTab('map');
+            } 
+            else if (tab === 'trend') {
+                navMobTrend.className = "flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300";
+                panelMainSection.classList.remove('hidden');
+                switchTab('trend');
+            } 
+            else if (tab === 'anomalies') {
+                navMobAnomalies.className = "flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300 relative";
+                panelSidebar.classList.remove('hidden');
+                panelSidebar.classList.add('flex-1');
+                
+                // Tampilkan hanya kartu anomali
+                sidebarCards[1].classList.remove('hidden');
+                sidebarCards[1].classList.add('flex-1');
+            } 
+            else if (tab === 'controls') {
+                navMobControls.className = "flex flex-col items-center gap-1 text-emerald-400 font-bold transition-all duration-300";
+                panelSidebar.classList.remove('hidden');
+                panelSidebar.classList.add('flex-1');
+                
+                // Tampilkan hanya panel filter
+                sidebarCards[0].classList.remove('hidden');
+            }
+        }
+
+        // Bindings Mobile Nav Click
+        navMobMap.addEventListener('click', () => switchTabMobile('map'));
+        navMobTrend.addEventListener('click', () => switchTabMobile('trend'));
+        navMobAnomalies.addEventListener('click', () => switchTabMobile('anomalies'));
+        navMobControls.addEventListener('click', () => switchTabMobile('controls'));
+
+        // Handle window resizing dynamically to prevent styles lock-ups
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                // Tampilkan semuanya di desktop
+                panelSidebar.classList.remove('hidden', 'flex-1');
+                panelMainSection.classList.remove('hidden');
+                
+                const sidebarCards = Array.from(panelSidebar.children);
+                sidebarCards.forEach(c => c.classList.remove('hidden'));
+            } else {
+                // Gunakan mode mobile aktif
+                switchTabMobile(currentTab);
+            }
+        });
+
+        // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
-            fetchAndRenderData(1);
+            // Jalankan deteksi ukuran awal untuk mobile layout
+            if (window.innerWidth < 768) {
+                switchTabMobile('map');
+            }
+            synchronizeAllViews();
         });
     </script>
 </body>

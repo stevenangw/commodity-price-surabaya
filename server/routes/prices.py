@@ -52,6 +52,15 @@ class PriceAnomaliesResponse(BaseModel):
     target_date: date
     anomalies: List[PriceAnomalyRecord]
 
+class PriceHistoryTrendRecord(BaseModel):
+    price_date: date
+    avg_price: float
+
+class PriceHistoryTrendResponse(BaseModel):
+    commodity_id: int
+    commodity_name: str
+    trend: List[PriceHistoryTrendRecord]
+
 class GeneralMessageResponse(BaseModel):
     message: str
 
@@ -252,6 +261,78 @@ async def get_price_anomalies(
     ]
 
     return PriceAnomaliesResponse(target_date=target_date, anomalies=anomaly_records)
+
+
+@router.get(
+    "/api/v1/prices/trend",
+    response_model=PriceHistoryTrendResponse,
+    summary="Mengambil tren rata-rata harga harian komoditas selama 30 hari terakhir"
+)
+@limiter.limit("60/minute")  # IP-based rate limit: 60 requests per minute
+@cache(expire=3600)          # Cache hasil tren harian selama 1 jam
+async def get_price_trend(
+    request: Request,
+    commodity_id: int = Query(..., description="ID komoditas pangan pokok"),
+    session: AsyncSession = Depends(get_db_session)
+):
+    """
+    Mengambil data rata-rata harga harian komoditas pangan dalam 30 hari ke belakang.
+    Bermanfaat untuk visualisasi grafik tren temporal.
+    """
+    # 1. Ambil nama komoditas
+    commodity_stmt = select(Commodity).where(Commodity.id == commodity_id)
+    commodity_res = (await session.execute(commodity_stmt)).scalar_one_or_none()
+    if not commodity_res:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Komoditas dengan ID {commodity_id} tidak ditemukan."
+        )
+
+    # 2. Cari tanggal terbaru data harga komoditas ini
+    max_date_stmt = select(func.max(PriceHistory.price_date)).where(PriceHistory.commodity_id == commodity_id)
+    target_date = (await session.execute(max_date_stmt)).scalar()
+    
+    if not target_date:
+        return PriceHistoryTrendResponse(
+            commodity_id=commodity_id,
+            commodity_name=commodity_res.name,
+            trend=[]
+        )
+
+    # 3. Hitung rentang 30 hari ke belakang dari tanggal data terbaru
+    start_date = target_date - timedelta(days=30)
+
+    # 4. Agregasikan rata-rata harga harian
+    query_stmt = (
+        select(
+            PriceHistory.price_date,
+            func.avg(PriceHistory.price).label("avg_price")
+        )
+        .where(
+            PriceHistory.commodity_id == commodity_id,
+            PriceHistory.price_date >= start_date,
+            PriceHistory.price_date <= target_date
+        )
+        .group_by(PriceHistory.price_date)
+        .order_by(PriceHistory.price_date.asc())
+    )
+    
+    query_result = await session.execute(query_stmt)
+    records = query_result.all()
+
+    trend_records = [
+        PriceHistoryTrendRecord(
+            price_date=row.price_date,
+            avg_price=round(float(row.avg_price), 2)
+        )
+        for row in records
+    ]
+
+    return PriceHistoryTrendResponse(
+        commodity_id=commodity_id,
+        commodity_name=commodity_res.name,
+        trend=trend_records
+    )
 
 
 # =====================================================================
