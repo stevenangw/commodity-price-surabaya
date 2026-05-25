@@ -383,9 +383,55 @@ def export_static_json(db_manager: DatabaseManager):
         with open("docs/data/anomalies.json", "w", encoding="utf-8") as f:
             json.dump(anomalies_dict, f, indent=2, ensure_ascii=False)
         logger.info("Berhasil menulis docs/data/anomalies.json")
-        logger.info("=== SELURUH DATA JSON STATIS BERHASIL DIEKSPOR! ===")
     except Exception as e:
         logger.error(f"Gagal menulis berkas anomalies.json: {str(e)}")
+
+    # 3. Ekspor data tren harian 30 hari (trends.json)
+    trends_dict = {}
+    sql_trends = """
+        WITH latest_date AS (
+            SELECT MAX(price_date) as max_date FROM price_history
+        )
+        SELECT 
+            ph.commodity_id,
+            c.name as commodity_name,
+            ph.price_date,
+            AVG(ph.price) as avg_price
+        FROM price_history ph
+        JOIN commodities c ON ph.commodity_id = c.id
+        CROSS JOIN latest_date ld
+        WHERE ph.price_date BETWEEN ld.max_date - INTERVAL '30 days' AND ld.max_date
+        GROUP BY ph.commodity_id, c.name, ph.price_date
+        ORDER BY ph.commodity_id, ph.price_date ASC;
+    """
+    try:
+        with conn.cursor() as cur:
+            cur.execute(sql_trends)
+            columns = [desc[0] for desc in cur.description]
+            rows = cur.fetchall()
+            
+            for row in rows:
+                item = dict(zip(columns, row))
+                cid = str(item["commodity_id"])
+                
+                if cid not in trends_dict:
+                    trends_dict[cid] = {
+                        "commodity_id": int(cid),
+                        "commodity_name": item["commodity_name"],
+                        "trend": []
+                    }
+                    
+                trends_dict[cid]["trend"].append({
+                    "price_date": str(item["price_date"]),
+                    "avg_price": round(float(item["avg_price"]), 2)
+                })
+                
+        with open("docs/data/trends.json", "w", encoding="utf-8") as f:
+            json.dump(trends_dict, f, indent=2, ensure_ascii=False)
+        logger.info("Berhasil menulis docs/data/trends.json")
+        logger.info("=== SELURUH DATA JSON STATIS BERHASIL DIEKSPOR! ===")
+    except Exception as e:
+        logger.error(f"Gagal menulis berkas trends.json: {str(e)}")
 
 # =====================================================================
 # Main Scraper Entry Point
