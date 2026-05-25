@@ -1,0 +1,21 @@
+# Core Dependencies
+pydantic>=2.5.0
+python-dotenv>=1.0.0
+loguru>=0.7.2
+
+# Scraper Stack
+requests>=2.31.0
+playwright>=1.40.0
+playwright-stealth>=0.1.9
+psycopg2-binary>=2.9.9
+
+# FastAPI Backend Stack
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+sqlalchemy>=2.0.23
+asyncpg>=0.29.0
+fastapi-cache2[sentry]>=0.2.1
+slowapi>=0.1.8
+
+# Testing Stack
+pytest>=7.4.3

@@ -1,0 +1,33 @@
+# Git Ignore Rules
+
+# Sensitif Secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+scraper_execution.log
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing Cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Dev Settings
+.vscode/
+.idea/
+.gemini/

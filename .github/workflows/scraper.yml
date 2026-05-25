@@ -1,0 +1,67 @@
+name: Daily Surabaya Food Price Scraper
+
+on:
+  schedule:
+    # Berjalan otomatis setiap hari pukul 08:00 WIB (01:00 UTC)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    # Memungkinkan pemicuan manual dari tab Actions di GitHub
+
+jobs:
+  scrape-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Execute Scraper & Export Static JSON
+      env:
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_NAME: ${{ secrets.DB_NAME }}
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        API_SERVER_URL: 'http://localhost:8088'
+        X_INTERNAL_TOKEN: 'super-secret-internal-token-2026'
+      run: |
+        # Jalankan scraper Surabaya dalam dual-mode (Siskaperbapo Jatim dengan fallback Mock)
+        python -m scraper.main
+
+    - name: Commit and Push Updated Dasbor Data JSON
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore(data): auto-update Surabaya latest_prices.json & anomalies.json [skip ci]"
+        file_pattern: 'docs/data/*.json'
+        commit_user_name: github-actions[bot]
+        commit_user_email: github-actions[bot]@users.noreply.github.com
+
+    - name: Send Telegram Alert on Failure
+      if: failure()
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: |
+        if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+          MESSAGE="⚠️ *Surabaya Price Scraper ALERT* ⚠️%0A%0AAlur otomatisasi harian gagal dijalankan di GitHub Actions! Silakan periksa log segera.%0A%0A🔗 *Log Detail:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+            -d "chat_id=$TELEGRAM_CHAT_ID" \
+            -d "text=$MESSAGE" \
+            -d "parse_mode=Markdown"
+          echo "Telegram alert sent successfully."
+        else
+          echo "Telegram secrets are not set, skipping alert."
+        fi

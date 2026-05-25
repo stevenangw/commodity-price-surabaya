@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pemantauan Harga Pangan Lokal Kota Surabaya</title>
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Leaflet.js CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Leaflet.markercluster CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        /* Customizing Leaflet Popups to match dark glassmorphic theme */
+        .leaflet-popup-content-wrapper {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #f8fafc !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+        }
+        .leaflet-popup-tip {
+            background: rgba(15, 23, 42, 0.95) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .leaflet-container a.leaflet-popup-close-button {
+            color: #94a3b8 !important;
+            padding: 8px 8px 0 0 !important;
+        }
+        .leaflet-container a.leaflet-popup-close-button:hover {
+            color: #f8fafc !important;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Header Glassmorphic -->
+    <header class="sticky top-0 z-[1000] border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <!-- Glowing Circle Logo -->
+            <div class="relative w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-slate-950">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m-3.75-3h.008v.008H12v-.008zM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </div>
+            <div>
+                <h1 class="font-outfit font-bold text-xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">PANTAU PANGAN SURABAYA</h1>
+                <p class="text-[10px] text-slate-400 font-medium tracking-wider -mt-1 uppercase">Dasbor Spasial-Temporal Komoditas Daerah</p>
+            </div>
+        </div>
+        
+        <!-- Live Status / Supabase Connected -->
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] text-teal-400 font-medium">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+            </span>
+            Supabase Cloud & GitHub Pages Active
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="flex-1 flex flex-col md:flex-row p-6 gap-6 overflow-hidden">
+        
+        <!-- Left Column: Controls & Analytics -->
+        <section class="w-full md:w-80 flex flex-col gap-6 flex-shrink-0">
+            
+            <!-- Control Panel Card -->
+            <div class="bg-slate-950/50 backdrop-blur-md p-5 rounded-2xl border border-slate-800/80 shadow-xl flex flex-col gap-4">
+                <h2 class="font-outfit font-semibold text-base text-slate-200 tracking-wide uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-emerald-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                    </svg>
+                    Panel Kontrol
+                </h2>
+                
+                <!-- Dropdown Komoditas -->
+                <div class="flex flex-col gap-1.5">
+                    <label for="commodity-select" class="text-xs font-semibold text-slate-400">Pilih Komoditas Pangan</label>
+                    <select id="commodity-select" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-2.5 text-sm text-slate-200 font-medium focus:outline-none focus:border-emerald-500 transition duration-250 cursor-pointer">
+                        <option value="1">Beras Premium</option>
+                        <option value="2" selected>Beras Medium</option>
+                        <option value="3">Cabai Rawit Merah</option>
+                        <option value="4">Bawang Merah</option>
+                        <option value="5">Telur Ayam Ras</option>
+                        <option value="6">Daging Sapi</option>
+                        <option value="7">Daging Ayam Ras</option>
+                        <option value="8">Minyak Goreng Curah</option>
+                        <option value="9">Gula Pasir</option>
+                        <option value="10">Bawang Putih</option>
+                    </select>
+                </div>
+                
+                <!-- Timeframe Selector -->
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-semibold text-slate-400">Timeframe Anomali (Moving Avg)</label>
+                    <div class="grid grid-cols-4 gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                        <button type="button" data-tf="1D" class="tf-btn py-1.5 text-[11px] font-bold rounded-lg text-slate-400 hover:text-slate-200 transition duration-150">1D</button>
+                        <button type="button" data-tf="3D" class="tf-btn py-1.5 text-[11px] font-bold rounded-lg text-slate-400 hover:text-slate-200 transition duration-150">3D</button>
+                        <button type="button" data-tf="1W" class="tf-btn py-1.5 text-[11px] font-bold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition duration-150 shadow-inner">1W</button>
+                        <button type="button" data-tf="1M" class="tf-btn py-1.5 text-[11px] font-bold rounded-lg text-slate-400 hover:text-slate-200 transition duration-150">1M</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend & Stats Card -->
+            <div class="bg-slate-950/50 backdrop-blur-md p-5 rounded-2xl border border-slate-800/80 shadow-xl flex flex-col gap-4 flex-1">
+                <h2 class="font-outfit font-semibold text-base text-slate-200 tracking-wide uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-emerald-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
+                    </svg>
+                    Ringkasan Surabaya
+                </h2>
+                
+                <!-- Stats Area -->
+                <div class="flex flex-col gap-3 py-2 border-b border-slate-800/80">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-400 font-medium">Rata-Rata Kota:</span>
+                        <span id="stat-avg" class="font-bold text-slate-200 font-outfit text-sm">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-400 font-medium">Harga Tertinggi:</span>
+                        <span id="stat-max" class="font-bold text-red-400 font-outfit text-sm">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-400 font-medium">Harga Terendah:</span>
+                        <span id="stat-min" class="font-bold text-emerald-400 font-outfit text-sm">-</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-400 font-medium">Pasar Dipantau:</span>
+                        <span id="stat-count" class="font-bold text-slate-200 font-outfit text-sm">-</span>
+                    </div>
+                </div>
+
+                <!-- Legend Scale -->
+                <div class="flex flex-col gap-2.5 pt-2">
+                    <span class="text-xs font-semibold text-slate-400">Status Pasar Surabaya</span>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)] border border-white/20"></div>
+                            <span class="text-xs text-slate-300 font-medium">Stabil / Normal</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-4 h-4 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.7)] border border-white/20 animate-pulse"></div>
+                            <span class="text-xs text-slate-300 font-medium">Loncatan Anomali (&gt; 15%)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Anomaly List in Sidebar -->
+                <div class="flex flex-col gap-2.5 pt-3 border-t border-slate-800/80">
+                    <span class="text-xs font-semibold text-slate-400">Daftar Anomali Hari Ini</span>
+                    <div id="anomaly-list" class="flex flex-col gap-2 max-h-40 overflow-y-auto pr-1 text-xs">
+                        <div class="text-slate-500 font-medium italic text-center py-2">Tidak mendeteksi anomali.</div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Right Column: Interactive Map -->
+        <section class="flex-1 min-h-[400px] md:min-h-0 bg-slate-950/50 backdrop-blur-md rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden relative flex flex-col">
+            
+            <!-- Map Container -->
+            <div id="map" class="flex-1 w-full z-10"></div>
+            
+            <!-- Loading Overlay -->
+            <div id="loading-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-[2000] flex flex-col items-center justify-center gap-4 transition duration-300 opacity-0 pointer-events-none">
+                <div class="w-12 h-12 rounded-full border-4 border-emerald-500/20 border-t-emerald-500 animate-spin"></div>
+                <p class="font-outfit font-medium text-slate-300 text-sm tracking-wide">Memuat Data Spasial Pangan Surabaya...</p>
+            </div>
+
+            <!-- Empty State Overlay -->
+            <div id="empty-overlay" class="absolute inset-0 bg-slate-950/90 backdrop-blur-md z-[1500] flex flex-col items-center justify-center gap-5 transition duration-300 opacity-0 pointer-events-none p-6 text-center">
+                <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800/80 flex items-center justify-center shadow-[0_0_15px_rgba(234,179,8,0.2)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-yellow-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                    </svg>
+                </div>
+                <h3 class="font-outfit font-bold text-slate-200 text-lg">Belum Ada Data Tersedia</h3>
+                <p class="text-xs text-slate-400 max-w-sm leading-relaxed -mt-2">Silakan jalankan orkestrator automasi lokal terlebih dahulu untuk menghasilkan data harga.</p>
+                <p id="empty-error-msg" class="text-xs text-red-400 max-w-md leading-relaxed -mt-2 font-medium bg-red-950/50 border border-red-900/50 p-2.5 rounded-xl hidden select-all"></p>
+                <div class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-[10px] text-slate-400 font-mono shadow-inner select-all cursor-pointer">
+                    python run_automation.py
+                </div>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="px-6 py-4 border-t border-slate-800/80 bg-slate-950/40 text-center text-xs text-slate-500 font-medium tracking-wide">
+        &copy; 2026 Proyek Pantau Pangan Lokal Kota Surabaya. 100% Serverless Static & Supabase Cloud Cloud-to-Cloud.
+    </footer>
+
+    <!-- Leaflet Map Rendering Script -->
+    <script>
+        // 1. Inisialisasi Peta Spasial Kota Surabaya (Auto-Zoom Center)
+        const map = L.map('map', {
+            zoomControl: false
+        }).setView([-7.275, 112.745], 12);
+        
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+        // 2. Set Tile Map Tema Gelap Premium (CartoDB Dark Matter)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        // 3. Inisialisasi Marker Cluster Group
+        const markersCluster = L.markerClusterGroup({
+            showCoverageOnHover: false,
+            zoomToBoundsOnClick: true,
+            maxClusterRadius: 40,
+            iconCreateFunction: function(cluster) {
+                const childCount = cluster.getChildCount();
+                let c = ' bg-emerald-500/20 text-emerald-400 ring-2 ring-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.4)]';
+                
+                // Cari apakah ada marker anomali (red-500) di dalam klaster ini
+                const markers = cluster.getAllChildMarkers();
+                const hasAnomaly = markers.some(m => m.options.isAnomaly);
+                if (hasAnomaly) {
+                    c = ' bg-red-500/20 text-red-400 ring-2 ring-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.4)] animate-pulse';
+                }
+                
+                return new L.DivIcon({ 
+                    html: `<div class="w-10 h-10 rounded-full flex items-center justify-center font-outfit font-bold text-xs backdrop-blur-md ${c}">${childCount}</div>`, 
+                    className: 'custom-cluster-icon', 
+                    iconSize: new L.Point(40, 40) 
+                });
+            }
+        });
+        map.addLayer(markersCluster);
+
+        // 4. Dom Selectors & State Variables
+        const commoditySelect = document.getElementById('commodity-select');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const emptyOverlay = document.getElementById('empty-overlay');
+        const statAvg = document.getElementById('stat-avg');
+        const statMax = document.getElementById('stat-max');
+        const statMin = document.getElementById('stat-min');
+        const statCount = document.getElementById('stat-count');
+        const anomalyListEl = document.getElementById('anomaly-list');
+
+        let activeTimeframe = "1W";
+        let pricesData = null;
+        let anomaliesData = null;
+
+        // Tampilkan/Sembunyikan Overlay
+        function toggleLoading(show) {
+            if (show) {
+                loadingOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                loadingOverlay.classList.add('opacity-100');
+            } else {
+                loadingOverlay.classList.remove('opacity-100');
+                loadingOverlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function toggleEmptyState(show) {
+            if (show) {
+                emptyOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                emptyOverlay.classList.add('opacity-100');
+            } else {
+                emptyOverlay.classList.remove('opacity-100');
+                emptyOverlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // 5. Muat Semua Berkas Data JSON Sekaligus (Optimasi Kinerja Cloud)
+        async function loadAllJSONData() {
+            toggleLoading(true);
+            const errorMsgEl = document.getElementById('empty-error-msg');
+            errorMsgEl.classList.add('hidden');
+            
+            try {
+                // Fetch statis berkas JSON dari direktori data/
+                const pRes = await fetch('data/latest_prices.json?_t=' + Date.now());
+                if (!pRes.ok) {
+                    throw new Error(`Gagal memuat berkas 'latest_prices.json' (HTTP ${pRes.status}). Berkas mungkin belum dibuat atau situs belum sepenuhnya dideploy di GitHub Pages.`);
+                }
+                
+                const aRes = await fetch('data/anomalies.json?_t=' + Date.now());
+                if (!aRes.ok) {
+                    throw new Error(`Gagal memuat berkas 'anomalies.json' (HTTP ${aRes.status}). Berkas mungkin belum dibuat atau situs belum sepenuhnya dideploy di GitHub Pages.`);
+                }
+                
+                pricesData = await pRes.json();
+                anomaliesData = await aRes.json();
+                toggleEmptyState(false);
+                return true;
+            } catch (err) {
+                console.error("Gagal memuat JSON statis:", err);
+                errorMsgEl.innerText = `Detail Galat: ${err.message}`;
+                errorMsgEl.classList.remove('hidden');
+                toggleEmptyState(true);
+                return false;
+            } finally {
+                toggleLoading(false);
+            }
+        }
+
+        // 6. Fungsi Render Utama Dasbor Spasial-Temporal
+        function renderDashboard() {
+            if (!pricesData || !anomaliesData) return;
+            
+            const commodityId = commoditySelect.value;
+            const commodityData = pricesData[commodityId];
+            
+            markersCluster.clearLayers();
+            
+            if (!commodityData || !commodityData.records || commodityData.records.length === 0) {
+                statAvg.innerText = "-";
+                statMax.innerText = "-";
+                statMin.innerText = "-";
+                statCount.innerText = "0";
+                anomalyListEl.innerHTML = '<div class="text-slate-500 font-medium italic text-center py-2">Tidak ada data pasar.</div>';
+                return;
+            }
+            
+            const records = commodityData.records;
+            const prices = records.map(r => r.price);
+            const count = records.length;
+            const minVal = Math.min(...prices);
+            const maxVal = Math.max(...prices);
+            const avgVal = prices.reduce((a, b) => a + b, 0) / count;
+            
+            const formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 });
+            
+            statAvg.innerText = `${formatter.format(avgVal)} / ${records[0].unit}`;
+            statCount.innerText = count.toString();
+            statMax.innerText = formatter.format(maxVal);
+            statMin.innerText = formatter.format(minVal);
+            
+            // Dapatkan seluruh anomali aktif untuk komoditas & timeframe terpilih
+            const tfAnomalies = anomaliesData[activeTimeframe]?.anomalies || [];
+            const activeAnomaliesForComm = tfAnomalies.filter(a => a.commodity_id == commodityId);
+            
+            // Render Daftar Anomali di Sidebar
+            if (activeAnomaliesForComm.length === 0) {
+                anomalyListEl.innerHTML = '<div class="text-slate-500 font-medium italic text-center py-2">Tidak mendeteksi anomali.</div>';
+            } else {
+                anomalyListEl.innerHTML = activeAnomaliesForComm.map(a => `
+                    <div class="p-2.5 rounded-xl border border-red-500/20 bg-red-500/5 flex flex-col gap-1 shadow-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-red-400 font-outfit">${a.market_name}</span>
+                            <span class="px-1.5 py-0.5 rounded bg-red-500/10 text-red-500 font-bold text-[9px]">+${a.price_increase_pct.toFixed(0)}%</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] text-slate-400 mt-0.5">
+                            <span>Harga: ${formatter.format(a.current_price)}</span>
+                            <span>M-Avg: ${formatter.format(a.avg_price_7d)}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Render Penanda (Markers) di Peta
+            records.forEach(record => {
+                if (record.latitude === null || record.longitude === null) return;
+                
+                // Cek apakah pasar ini memiliki anomali aktif untuk komoditas terpilih
+                const isAnomaly = activeAnomaliesForComm.some(a => a.market_id == record.market_id);
+                
+                let statusColorClass = 'bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.7)]';
+                let statusText = 'Harga Stabil';
+                let textColor = 'text-emerald-400';
+                
+                if (isAnomaly) {
+                    statusColorClass = 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)] animate-pulse';
+                    statusText = `Anomali Melonjak! (>15% vs ${activeTimeframe})`;
+                    textColor = 'text-red-400';
+                }
+                
+                // Circular Pulsing Icon
+                const customIcon = L.divIcon({
+                    html: `<div class="relative flex items-center justify-center w-6 h-6">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-40 ${statusColorClass}"></span>
+                              <span class="relative inline-flex rounded-full h-4.5 w-4.5 border border-white/30 ${statusColorClass}"></span>
+                           </div>`,
+                    className: 'custom-marker',
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+                
+                // Dark Glassmorphic Popup
+                const popupContent = `
+                    <div class="flex flex-col gap-2 p-1 font-sans">
+                        <div class="flex justify-between items-start gap-3">
+                            <span class="font-outfit font-bold text-slate-100 text-sm tracking-tight">${record.market_name}</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 font-semibold tracking-wider uppercase">${record.market_type}</span>
+                        </div>
+                        <div class="h-[1px] w-full bg-slate-800"></div>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-slate-400 font-medium">Harga Eceran:</span>
+                            <span class="font-outfit font-bold text-slate-100 text-sm">${formatter.format(record.price)} / ${record.unit}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400 font-medium">Status Pasar:</span>
+                            <span class="text-xs font-bold ${textColor}">${statusText}</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] text-slate-500 font-semibold mt-1">
+                            <span>Update: ${new Date(record.price_date).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
+                        </div>
+                    </div>
+                `;
+                
+                const marker = L.marker([record.latitude, record.longitude], { 
+                    icon: customIcon,
+                    isAnomaly: isAnomaly 
+                }).bindPopup(popupContent);
+                
+                markersCluster.addLayer(marker);
+            });
+            
+            // Atur agar Peta pas merangkul sebaran pasar di Surabaya
+            if (records.length > 0) {
+                const bounds = markersCluster.getBounds();
+                if (bounds.isValid()) {
+                    map.fitBounds(bounds, { padding: [50, 50] });
+                }
+            }
+        }
+
+        // 7. Pengendali Pemilihan Timeframe
+        document.querySelectorAll('.tf-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Hapus gaya aktif dari seluruh tombol
+                document.querySelectorAll('.tf-btn').forEach(b => {
+                    b.className = "tf-btn py-1.5 text-[11px] font-bold rounded-lg text-slate-400 hover:text-slate-200 transition duration-150";
+                });
+                
+                // Tambahkan gaya aktif ke tombol yang diklik
+                e.target.className = "tf-btn py-1.5 text-[11px] font-bold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition duration-150 shadow-inner";
+                
+                activeTimeframe = e.target.getAttribute('data-tf');
+                renderDashboard();
+            });
+        });
+
+        // 8. Event Listener Perubahan Komoditas & Load Halaman
+        commoditySelect.addEventListener('change', renderDashboard);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const success = await loadAllJSONData();
+            if (success) {
+                renderDashboard();
+            }
+        });
+    </script>
+</body>
+</html>

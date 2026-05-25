@@ -1,0 +1,74 @@
+{
+  "1D": {
+    "target_date": "2026-05-24",
+    "anomalies": [
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "commodity_id": 3,
+        "commodity_name": "Cabai Rawit Merah",
+        "price_date": "2026-05-24",
+        "current_price": 56704.5,
+        "avg_price_7d": 46006.56,
+        "price_increase_pct": 23.25307521362171
+      }
+    ]
+  },
+  "3D": {
+    "target_date": "2026-05-24",
+    "anomalies": [
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "commodity_id": 3,
+        "commodity_name": "Cabai Rawit Merah",
+        "price_date": "2026-05-24",
+        "current_price": 56704.5,
+        "avg_price_7d": 44901.39666666667,
+        "price_increase_pct": 26.286717584657165
+      }
+    ]
+  },
+  "1W": {
+    "target_date": "2026-05-24",
+    "anomalies": [
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "commodity_id": 3,
+        "commodity_name": "Cabai Rawit Merah",
+        "price_date": "2026-05-24",
+        "current_price": 56704.5,
+        "avg_price_7d": 46065.154285714285,
+        "price_increase_pct": 23.096298882005883
+      }
+    ]
+  },
+  "1M": {
+    "target_date": "2026-05-24",
+    "anomalies": [
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "commodity_id": 3,
+        "commodity_name": "Cabai Rawit Merah",
+        "price_date": "2026-05-24",
+        "current_price": 56704.5,
+        "avg_price_7d": 46210.217333333334,
+        "price_increase_pct": 22.709875158056676
+      }
+    ]
+  }
+}
