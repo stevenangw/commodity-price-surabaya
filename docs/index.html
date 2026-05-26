@@ -249,17 +249,8 @@
             </div>
         </div>
         
-        <!-- Database Status & System Indicator & Theme Toggle -->
+        <!-- Sleek Theme Toggle Button -->
         <div class="flex items-center gap-3">
-            <div class="flex items-center gap-2 px-3 py-2 rounded-full bg-surface-alt border border-border text-[11px] text-text-secondary font-semibold">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-positive opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-positive"></span>
-                </span>
-                ● Diperbarui otomatis
-            </div>
-            
-            <!-- Sleek Theme Toggle Button -->
             <button id="theme-toggle" class="p-2 text-text-secondary hover:text-text-primary bg-surface border border-border hover:bg-surface-alt rounded-xl transition-all flex items-center justify-center min-w-[48px] min-h-[48px]" title="Ganti Tema">
                 <!-- Sun icon (shown in dark mode) -->
                 <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
@@ -646,6 +637,7 @@
                 themeToggleLightIcon.classList.remove('hidden');
                 themeToggleDarkIcon.classList.add('hidden');
             }
+            loadHistoricalData();
         });
 
         initTheme();
@@ -1153,6 +1145,14 @@
             chartGlow.addColorStop(0, 'rgba(56, 139, 253, 0.15)');
             chartGlow.addColorStop(1, 'rgba(56, 139, 253, 0)');
 
+            const isDark = document.documentElement.classList.contains('dark');
+            const tooltipBg = isDark ? '#1C2128' : '#FFFFFF';
+            const tooltipText = isDark ? '#E6EDF3' : '#1F2328';
+            const tooltipBorderColor = isDark ? '#30363D' : '#D0D7DE';
+            
+            const gridColor = isDark ? '#30363D' : '#EAEEF2';
+            const tickColor = isDark ? '#8B949E' : '#636C76';
+
             trendChartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -1163,7 +1163,7 @@
                         borderColor: '#388BFD',
                         borderWidth: 3,
                         pointBackgroundColor: '#388BFD',
-                        pointBorderColor: '#FFFFFF',
+                        pointBorderColor: isDark ? '#161B22' : '#FFFFFF',
                         pointBorderWidth: 2,
                         pointRadius: 4,
                         pointHoverRadius: 6,
@@ -1184,12 +1184,12 @@
                             display: false
                         },
                         tooltip: {
-                            backgroundColor: 'var(--surface)',
-                            titleColor: 'var(--text-primary)',
-                            bodyColor: 'var(--text-primary)',
+                            backgroundColor: tooltipBg,
+                            titleColor: tooltipText,
+                            bodyColor: tooltipText,
                             titleFont: { family: 'IBM Plex Sans', weight: 'bold', size: 12 },
                             bodyFont: { family: 'IBM Plex Sans', size: 12 },
-                            borderColor: 'var(--border)',
+                            borderColor: tooltipBorderColor,
                             borderWidth: 1,
                             padding: 10,
                             displayColors: false,
@@ -1206,16 +1206,16 @@
                                 display: false,
                             },
                             ticks: {
-                                color: 'var(--text-secondary)',
+                                color: tickColor,
                                 font: { family: 'IBM Plex Sans', size: 10, weight: '500' }
                             }
                         },
                         y: {
                             grid: {
-                                color: 'var(--border)',
+                                color: gridColor,
                             },
                             ticks: {
-                                color: 'var(--text-secondary)',
+                                color: tickColor,
                                 font: { family: 'IBM Plex Sans', size: 10, weight: '500' },
                                 callback: function(value) {
                                     return rupiahFormatter.format(value);
@@ -1401,4 +1401,4 @@
         });
     </script>
 </body>
-</html>/html>
+</html>
