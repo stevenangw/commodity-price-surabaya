@@ -8,6 +8,8 @@ requests>=2.31.0
 playwright>=1.40.0
 playwright-stealth>=0.1.9
 psycopg2-binary>=2.9.9
+beautifulsoup4>=4.12.0
+
 
 # FastAPI Backend Stack
 fastapi>=0.104.0
