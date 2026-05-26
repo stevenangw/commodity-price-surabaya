@@ -511,6 +511,24 @@
     </footer>    <!-- Frontend Interactive Javascript Engine -->
     <script>
         // =====================================================================
+        // Dynamic Base Path Resolution for Local Server & GitHub Pages Subpath
+        // =====================================================================
+        const getBasePath = () => {
+            const hostname = window.location.hostname;
+            const pathname = window.location.pathname;
+            
+            if (hostname.endsWith('github.io')) {
+                const parts = pathname.split('/').filter(p => p !== '');
+                if (parts.length > 0) {
+                    return '/' + parts[0] + '/';
+                }
+                return '/commodity-price-surabaya/';
+            }
+            return '/';
+        };
+        const BASE_PATH = getBasePath();
+
+        // =====================================================================
         // Robust API Client with Resilient Static Fallback for Serverless/GitHub Pages
         // =====================================================================
         async function fetchAPI(url, staticFallbackUrl, staticExtractor) {
@@ -758,7 +776,7 @@
             markersCluster.clearLayers();
             markerMap = {}; 
 
-            let url = `/api/v1/prices/latest?commodity_id=${selectedCommodityId}`;
+            let url = `${BASE_PATH}api/v1/prices/latest?commodity_id=${selectedCommodityId}`;
             if (selectedDate) {
                 url += `&price_date=${selectedDate}`;
             }
@@ -766,7 +784,7 @@
             try {
                 const data = await fetchAPI(
                     url,
-                    'data/latest_prices.json',
+                    `${BASE_PATH}data/latest_prices.json`,
                     (staticData) => staticData[selectedCommodityId] || { commodity_id: selectedCommodityId, commodity_name: '', target_date: '', records: [] }
                 );
                 
@@ -816,13 +834,13 @@
         }
 
         async function loadHistoricalData() {
-            const url = `/api/v1/prices/trend?commodity_id=${selectedCommodityId}`;
+            const url = `${BASE_PATH}api/v1/prices/trend?commodity_id=${selectedCommodityId}`;
             const trendEmpty = document.getElementById('trend-empty');
             
             try {
                 const data = await fetchAPI(
                     url,
-                    'data/trends.json',
+                    `${BASE_PATH}data/trends.json`,
                     (staticData) => staticData[selectedCommodityId] || { commodity_id: selectedCommodityId, commodity_name: '', trend: [] }
                 );
                 const trend = data.trend;
