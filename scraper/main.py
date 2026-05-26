@@ -11,7 +11,7 @@ from typing import List, Dict, Tuple, Optional
 from decimal import Decimal
 from loguru import logger
 
-from scraper.config import BAPANAS_API_URL, INTERNAL_TOKEN, API_SERVER_URL
+from scraper.config import BAPANAS_API_URL, INTERNAL_TOKEN, API_SERVER_URL, DB_CONFIGURED, OFFLINE_MARKETS, OFFLINE_COMMODITIES
 from scraper.database import DatabaseManager
 from scraper.utils.parser import ScrapedPriceRecord, parse_and_validate_record
 
@@ -82,7 +82,7 @@ def scrape_siskaperbapo() -> List[ScrapedPriceRecord]:
                 
             # Bersihkan dan validasi melalui parser pipeline untuk 7 pasar jangkar di Surabaya secara acak
             # untuk mensimulasikan sebaran harga riil ke dalam pasar-pasar lokal kita
-            for market_name in ["Pasar Wonokromo", "Pasar Keputran", "Pasar Genteng", "Pasar Pabean", "Pasar Tambahrejo", "Pasar Soponyono", "Pasar Blauran"]:
+            for market_name in OFFLINE_MARKETS.keys():
                 try:
                     record = parse_and_validate_record(
                         raw_market=market_name,
@@ -119,15 +119,7 @@ def generate_mock_surabaya_data(start_date_str: str = "2026-04-01") -> List[Scra
     today_date = date.today()
     
     # 7 Pasar Surabaya
-    markets = [
-        "Pasar Wonokromo",
-        "Pasar Keputran",
-        "Pasar Genteng",
-        "Pasar Pabean",
-        "Pasar Tambahrejo",
-        "Pasar Soponyono",
-        "Pasar Blauran"
-    ]
+    markets = list(OFFLINE_MARKETS.keys())
     
     # 10 Komoditas & Harga Dasar
     base_prices = {
@@ -200,87 +192,63 @@ def generate_mock_surabaya_data(start_date_str: str = "2026-04-01") -> List[Scra
     return records
 
 # =====================================================================
-# Serverless Static JSON Exporter (Docs Output Generator)
+# Unified Dashboard JSON Exporter & Local Calculations
 # =====================================================================
 
-def export_static_json(db_manager: DatabaseManager):
+def generate_dashboard_jsons(records: List[ScrapedPriceRecord]):
     """
-    Mengekstrak data dari Supabase PostgreSQL dan menyimpannya ke berkas JSON statis
-    di docs/data/ untuk dikonsumsi langsung oleh dasbor GitHub Pages.
+    Fungsi terpadu (shared) untuk memproses records (baik dari database maupun offline)
+    dan menulis berkas latest_prices.json, anomalies.json, dan trends.json ke folder docs/data/.
     """
-    logger.info("=== MEMULAI EKSPOR DATA JSON STATIS DASBOR ===")
-    conn = db_manager.get_connection()
+    logger.info("=== MEMULAI PEMBUATAN BERKAS JSON STATIS DASBOR ===")
     os.makedirs("docs/data", exist_ok=True)
     
-    # Ambil tanggal terbaru di database
-    today_date = date.today()
+    if not records:
+        logger.warning("Tidak ada data records untuk diekspor ke JSON dasbor.")
+        return
+        
+    # Ambil tanggal terbaru (max date) dari data
+    max_date = max(r.price_date for r in records)
     
-    # 1. Ekspor data harga terbaru (latest_prices.json)
+    # 1. GENERATE latest_prices.json
     latest_prices_dict = {}
+    latest_records = [r for r in records if r.price_date == max_date]
     
-    sql_latest = """
-        SELECT 
-            m.id as market_id,
-            m.name as market_name,
-            m.market_type,
-            m.latitude,
-            m.longitude,
-            c.id as commodity_id,
-            c.name as commodity_name,
-            c.unit,
-            ph.price,
-            ph.price_date
-        FROM price_history ph
-        JOIN markets m ON ph.market_id = m.id
-        JOIN commodities c ON ph.commodity_id = c.id
-        WHERE ph.price_date = (SELECT MAX(price_date) FROM price_history);
-    """
-    
-    try:
-        with conn.cursor() as cur:
-            cur.execute(sql_latest)
-            columns = [desc[0] for desc in cur.description]
-            rows = cur.fetchall()
+    for r in latest_records:
+        comm_name = r.normalized_commodity_name
+        market_name = r.normalized_market_name
+        
+        comm_info = OFFLINE_COMMODITIES.get(comm_name)
+        market_info = OFFLINE_MARKETS.get(market_name)
+        
+        if not comm_info or not market_info:
+            continue
             
-            # Kelompokkan berdasarkan ID komoditas
-            for row in rows:
-                item = dict(zip(columns, row))
-                cid = str(item["commodity_id"])
-                
-                # Format decimal & date ke string agar JSON serializable
-                item["latitude"] = float(item["latitude"]) if item["latitude"] else None
-                item["longitude"] = float(item["longitude"]) if item["longitude"] else None
-                item["price"] = float(item["price"])
-                item["price_date"] = str(item["price_date"])
-                
-                if cid not in latest_prices_dict:
-                    latest_prices_dict[cid] = {
-                        "commodity_id": int(cid),
-                        "commodity_name": item["commodity_name"],
-                        "target_date": item["price_date"],
-                        "records": []
-                    }
-                    
-                latest_prices_dict[cid]["records"].append({
-                    "market_id": item["market_id"],
-                    "market_name": item["market_name"],
-                    "market_type": item["market_type"],
-                    "latitude": item["latitude"],
-                    "longitude": item["longitude"],
-                    "price": item["price"],
-                    "price_date": item["price_date"],
-                    "unit": item["unit"]
-                })
-                
-        # Tulis latest_prices.json
-        with open("docs/data/latest_prices.json", "w", encoding="utf-8") as f:
-            json.dump(latest_prices_dict, f, indent=2, ensure_ascii=False)
-        logger.info("Berhasil menulis docs/data/latest_prices.json")
+        cid_str = str(comm_info["id"])
+        if cid_str not in latest_prices_dict:
+            latest_prices_dict[cid_str] = {
+                "commodity_id": comm_info["id"],
+                "commodity_name": comm_name,
+                "target_date": str(max_date),
+                "records": []
+            }
+            
+        latest_prices_dict[cid_str]["records"].append({
+            "market_id": market_info["id"],
+            "market_name": market_name,
+            "market_type": market_info["market_type"],
+            "latitude": market_info["latitude"],
+            "longitude": market_info["longitude"],
+            "price": float(r.price),
+            "price_date": str(r.price_date),
+            "unit": comm_info["unit"]
+        })
         
-    except Exception as e:
-        logger.error(f"Gagal mengekspor latest_prices.json: {str(e)}")
-        
-    # 2. Ekspor data anomali untuk berbagai rentang waktu (anomalies.json)
+    with open("docs/data/latest_prices.json", "w", encoding="utf-8") as f:
+        json.dump(latest_prices_dict, f, indent=2, ensure_ascii=False)
+    logger.info("Berhasil menulis docs/data/latest_prices.json")
+    
+    # 2. GENERATE anomalies.json
     anomalies_dict = {}
     timeframes = {
         "1D": 1,
@@ -289,149 +257,250 @@ def export_static_json(db_manager: DatabaseManager):
         "1M": 30
     }
     
-    # Ambil target_date (maksimum tanggal di DB)
-    try:
-        with conn.cursor() as cur:
-            cur.execute("SELECT MAX(price_date) FROM price_history;")
-            target_date = cur.fetchone()[0]
-    except Exception:
-        target_date = today_date
+    # Pre-group all records by (market, commodity) and date for fast lookup
+    records_by_key = {}
+    for r in records:
+        key = (r.normalized_market_name, r.normalized_commodity_name)
+        if key not in records_by_key:
+            records_by_key[key] = {}
+        records_by_key[key][r.price_date] = float(r.price)
         
     for tf_code, days in timeframes.items():
-        start_date = target_date - timedelta(days=days + 1)
-        
-        # Query Window Function ter-optimasi secara temporal dengan interval eksklusif hari ini untuk baseline
-        sql_anomaly = """
-            WITH price_slice AS (
-                SELECT market_id, commodity_id, price_date, price
-                FROM price_history
-                WHERE price_date BETWEEN %s AND %s
-            ),
-            price_averages AS (
-                SELECT 
-                    market_id,
-                    commodity_id,
-                    price_date,
-                    price,
-                    AVG(price) OVER (
-                        PARTITION BY market_id, commodity_id 
-                        ORDER BY price_date 
-                        RANGE BETWEEN INTERVAL '""" + str(days) + """ days' PRECEDING AND INTERVAL '1 day' PRECEDING
-                    ) as avg_price_tf
-                FROM price_slice
-            )
-            SELECT 
-                pa.market_id,
-                m.name as market_name,
-                m.market_type,
-                m.latitude,
-                m.longitude,
-                pa.commodity_id,
-                c.name as commodity_name,
-                pa.price_date,
-                pa.price as current_price,
-                pa.avg_price_tf as avg_price_7d,
-                ((pa.price - pa.avg_price_tf) / pa.avg_price_tf) * 100 as price_increase_pct
-            FROM price_averages pa
-            JOIN markets m ON pa.market_id = m.id
-            JOIN commodities c ON pa.commodity_id = c.id
-            WHERE pa.price_date = %s
-              AND pa.avg_price_tf IS NOT NULL
-              AND pa.avg_price_tf > 0
-              AND pa.price > (pa.avg_price_tf * 1.15)
-            ORDER BY price_increase_pct DESC;
-        """
-        
         anomalies_list = []
-        try:
-            with conn.cursor() as cur:
-                cur.execute(sql_anomaly, (start_date, target_date, target_date))
-                columns = [desc[0] for desc in cur.description]
-                rows = cur.fetchall()
+        for (market_name, comm_name), date_prices in records_by_key.items():
+            if max_date not in date_prices:
+                continue
                 
-                for row in rows:
-                    item = dict(zip(columns, row))
-                    anomalies_list.append({
-                        "market_id": item["market_id"],
-                        "market_name": item["market_name"],
-                        "market_type": item["market_type"],
-                        "latitude": float(item["latitude"]) if item["latitude"] else None,
-                        "longitude": float(item["longitude"]) if item["longitude"] else None,
-                        "commodity_id": item["commodity_id"],
-                        "commodity_name": item["commodity_name"],
-                        "price_date": str(item["price_date"]),
-                        "current_price": float(item["current_price"]),
-                        "avg_price_7d": float(item["avg_price_7d"]),
-                        "price_increase_pct": float(item["price_increase_pct"])
-                    })
+            current_price = date_prices[max_date]
             
-            anomalies_dict[tf_code] = {
-                "target_date": str(target_date),
-                "anomalies": anomalies_list
-            }
-            logger.info(f"Berhasil memproses {len(anomalies_list)} anomali untuk rentang waktu {tf_code}.")
-            
-        except Exception as e:
-            logger.error(f"Gagal memproses anomali untuk rentang waktu {tf_code}: {str(e)}")
-            anomalies_dict[tf_code] = {
-                "target_date": str(target_date),
-                "anomalies": []
-            }
-            
-    try:
-        # Tulis anomalies.json
-        with open("docs/data/anomalies.json", "w", encoding="utf-8") as f:
-            json.dump(anomalies_dict, f, indent=2, ensure_ascii=False)
-        logger.info("Berhasil menulis docs/data/anomalies.json")
-    except Exception as e:
-        logger.error(f"Gagal menulis berkas anomalies.json: {str(e)}")
-
-    # 3. Ekspor data tren harian 30 hari (trends.json)
+            # Kumpulkan harga dari hari-hari sebelumnya
+            preceding_prices = []
+            for d in range(1, days + 1):
+                prev_date = max_date - timedelta(days=d)
+                if prev_date in date_prices:
+                    preceding_prices.append(date_prices[prev_date])
+                    
+            if preceding_prices:
+                avg_price = sum(preceding_prices) / len(preceding_prices)
+                if avg_price > 0 and current_price > (avg_price * 1.15):
+                    price_increase_pct = ((current_price - avg_price) / avg_price) * 100
+                    
+                    market_info = OFFLINE_MARKETS.get(market_name)
+                    comm_info = OFFLINE_COMMODITIES.get(comm_name)
+                    
+                    if market_info and comm_info:
+                        anomalies_list.append({
+                            "market_id": market_info["id"],
+                            "market_name": market_name,
+                            "market_type": market_info["market_type"],
+                            "latitude": market_info["latitude"],
+                            "longitude": market_info["longitude"],
+                            "commodity_id": comm_info["id"],
+                            "commodity_name": comm_name,
+                            "price_date": str(max_date),
+                            "current_price": current_price,
+                            "avg_price_7d": avg_price,
+                            "price_increase_pct": price_increase_pct
+                        })
+                        
+        anomalies_list.sort(key=lambda x: x["price_increase_pct"], reverse=True)
+        anomalies_dict[tf_code] = {
+            "target_date": str(max_date),
+            "anomalies": anomalies_list
+        }
+        logger.info(f"Berhasil memproses {len(anomalies_list)} anomali untuk rentang waktu {tf_code}.")
+        
+    with open("docs/data/anomalies.json", "w", encoding="utf-8") as f:
+        json.dump(anomalies_dict, f, indent=2, ensure_ascii=False)
+    logger.info("Berhasil menulis docs/data/anomalies.json")
+    
+    # 3. GENERATE trends.json
     trends_dict = {}
-    sql_trends = """
-        WITH latest_date AS (
-            SELECT MAX(price_date) as max_date FROM price_history
-        )
+    start_trend_date = max_date - timedelta(days=30)
+    
+    trends_by_key = {}
+    for r in records:
+        if start_trend_date <= r.price_date <= max_date:
+            key = (r.normalized_commodity_name, r.price_date)
+            if key not in trends_by_key:
+                trends_by_key[key] = []
+            trends_by_key[key].append(float(r.price))
+            
+    for (comm_name, p_date), prices in trends_by_key.items():
+        comm_info = OFFLINE_COMMODITIES.get(comm_name)
+        if not comm_info:
+            continue
+            
+        cid_str = str(comm_info["id"])
+        if cid_str not in trends_dict:
+            trends_dict[cid_str] = {
+                "commodity_id": comm_info["id"],
+                "commodity_name": comm_name,
+                "trend": []
+            }
+            
+        avg_price = sum(prices) / len(prices)
+        trends_dict[cid_str]["trend"].append({
+            "price_date": str(p_date),
+            "avg_price": round(avg_price, 2)
+        })
+        
+    for cid_str in trends_dict:
+        trends_dict[cid_str]["trend"].sort(key=lambda x: x["price_date"])
+        
+    with open("docs/data/trends.json", "w", encoding="utf-8") as f:
+        json.dump(trends_dict, f, indent=2, ensure_ascii=False)
+    logger.info("Berhasil menulis docs/data/trends.json")
+    logger.info("=== SELURUH DATA JSON STATIS BERHASIL DIEKSPOR SECARA TERPADU! ===")
+
+# =====================================================================
+# Database Static JSON Exporter (SQL Mode Wrapper)
+# =====================================================================
+
+def export_static_json(db_manager: DatabaseManager):
+    """
+    Mengekstrak data 60 hari terakhir dari Supabase PostgreSQL 
+    dan menyimpannya ke berkas JSON statis menggunakan generator terpadu.
+    """
+    logger.info("=== MEMULAI EKSPOR DATA DARI DATABASE POSTGRESQL ===")
+    conn = db_manager.get_connection()
+    
+    sql_query = """
         SELECT 
-            ph.commodity_id,
+            m.name as market_name,
             c.name as commodity_name,
             ph.price_date,
-            AVG(ph.price) as avg_price
+            ph.price,
+            ph.source_url
         FROM price_history ph
+        JOIN markets m ON ph.market_id = m.id
         JOIN commodities c ON ph.commodity_id = c.id
-        CROSS JOIN latest_date ld
-        WHERE ph.price_date BETWEEN ld.max_date - INTERVAL '30 days' AND ld.max_date
-        GROUP BY ph.commodity_id, c.name, ph.price_date
-        ORDER BY ph.commodity_id, ph.price_date ASC;
+        WHERE ph.price_date >= CURRENT_DATE - INTERVAL '60 days';
     """
+    
     try:
         with conn.cursor() as cur:
-            cur.execute(sql_trends)
-            columns = [desc[0] for desc in cur.description]
+            cur.execute(sql_query)
             rows = cur.fetchall()
             
-            for row in rows:
-                item = dict(zip(columns, row))
-                cid = str(item["commodity_id"])
-                
-                if cid not in trends_dict:
-                    trends_dict[cid] = {
-                        "commodity_id": int(cid),
-                        "commodity_name": item["commodity_name"],
-                        "trend": []
-                    }
-                    
-                trends_dict[cid]["trend"].append({
-                    "price_date": str(item["price_date"]),
-                    "avg_price": round(float(item["avg_price"]), 2)
-                })
-                
-        with open("docs/data/trends.json", "w", encoding="utf-8") as f:
-            json.dump(trends_dict, f, indent=2, ensure_ascii=False)
-        logger.info("Berhasil menulis docs/data/trends.json")
-        logger.info("=== SELURUH DATA JSON STATIS BERHASIL DIEKSPOR! ===")
+            records: List[ScrapedPriceRecord] = []
+            for m_name, c_name, p_date, price, s_url in rows:
+                records.append(ScrapedPriceRecord(
+                    external_market_name=m_name,
+                    external_commodity_name=c_name,
+                    normalized_market_name=m_name,
+                    normalized_commodity_name=c_name,
+                    price_date=p_date,
+                    price=Decimal(str(price)),
+                    source_url=s_url
+                ))
+            
+            logger.info(f"Berhasil menarik {len(records)} baris data historis dari database.")
+            # Sinkronkan cache offline dengan data terbaru dari database
+            save_offline_history(records)
+            
+            # Ekspor JSON dasbor statis
+            generate_dashboard_jsons(records)
+            
     except Exception as e:
-        logger.error(f"Gagal menulis berkas trends.json: {str(e)}")
+        logger.error(f"Gagal mengekspor data menggunakan SQL: {str(e)}")
+        raise e
+
+# =====================================================================
+# Resilient Offline Cache Loader & Saver (Serverless Failover Engine)
+# =====================================================================
+
+def load_offline_history() -> List[ScrapedPriceRecord]:
+    """
+    Membaca data historis dari berkas cache lokal docs/data/history.json.
+    Mengembalikan daftar ScrapedPriceRecord.
+    """
+    cache_path = "docs/data/history.json"
+    if not os.path.exists(cache_path):
+        logger.info(f"Berkas cache offline {cache_path} belum tersedia.")
+        return []
+        
+    try:
+        with open(cache_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            records = []
+            for item in data:
+                records.append(ScrapedPriceRecord(
+                    external_market_name=item["external_market_name"],
+                    external_commodity_name=item["external_commodity_name"],
+                    normalized_market_name=item["normalized_market_name"],
+                    normalized_commodity_name=item["normalized_commodity_name"],
+                    price_date=datetime.strptime(item["price_date"], "%Y-%m-%d").date(),
+                    price=Decimal(str(item["price"])),
+                    source_url=item.get("source_url")
+                ))
+            logger.info(f"Berhasil memuat {len(records)} data historis dari cache offline.")
+            return records
+    except Exception as e:
+        logger.warning(f"Gagal memuat cache offline: {str(e)}")
+        return []
+
+def save_offline_history(records: List[ScrapedPriceRecord]):
+    """
+    Menyimpan records ke berkas cache lokal docs/data/history.json dengan pembatasan 45 hari terakhir
+    untuk menghemat ruang penyimpanan.
+    """
+    cache_path = "docs/data/history.json"
+    os.makedirs("docs/data", exist_ok=True)
+    
+    if not records:
+        return
+        
+    # Cari tanggal terbaru dan batasi ke 45 hari ke belakang
+    max_date = max(r.price_date for r in records)
+    limit_date = max_date - timedelta(days=45)
+    
+    filtered_records = [r for r in records if r.price_date >= limit_date]
+    
+    # Hindari duplikasi dengan kombinasi unik (market, commodity, date)
+    unique_records = {}
+    for r in filtered_records:
+        key = (r.normalized_market_name, r.normalized_commodity_name, r.price_date)
+        unique_records[key] = r
+        
+    serialized_data = []
+    for r in unique_records.values():
+        serialized_data.append({
+            "external_market_name": r.external_market_name,
+            "external_commodity_name": r.external_commodity_name,
+            "normalized_market_name": r.normalized_market_name,
+            "normalized_commodity_name": r.normalized_commodity_name,
+            "price_date": str(r.price_date),
+            "price": float(r.price),
+            "source_url": r.source_url
+        })
+        
+    try:
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(serialized_data, f, indent=2, ensure_ascii=False)
+        logger.info(f"Berhasil memperbarui cache offline di {cache_path} dengan {len(serialized_data)} records.")
+    except Exception as e:
+        logger.error(f"Gagal menulis cache offline: {str(e)}")
+
+def run_offline_pipeline(new_records: List[ScrapedPriceRecord]):
+    """
+    Mengeksekusi otomatisasi serverless tanpa database:
+    1. Memuat cache history.json
+    2. Menggabungkan data baru (hari ini)
+    3. Menyimpan kembali cache history.json
+    4. Menghasilkan docs/data/*.json dasbor terpadu
+    """
+    logger.info("=== MEMULAI PIPELINE OFF-LINE RESILIENT (SERVERLESS) ===")
+    history_records = load_offline_history()
+    
+    # Gabungkan data baru dengan data historis
+    all_records = history_records + new_records
+    
+    # Simpan kembali cache history
+    save_offline_history(all_records)
+    
+    # Hasilkan berkas visualisasi dasbor statis
+    generate_dashboard_jsons(all_records)
 
 # =====================================================================
 # Main Scraper Entry Point
@@ -445,7 +514,7 @@ async def main():
     
     db_manager = DatabaseManager()
     
-    logger.info("=== STRAT PENJADWAL SCRAPING HARGA SURABAYA ===")
+    logger.info("=== START PENJADWAL SCRAPING HARGA SURABAYA ===")
     
     try:
         scraped_records = []
@@ -466,23 +535,41 @@ async def main():
             logger.error("Scraper/Generator tidak menghasilkan data apa pun. Pekerjaan dibatalkan.")
             return
             
-        logger.info(f"Memproses {len(scraped_records)} baris data untuk dimasukkan ke database...")
-        
-        # 3. Batch Upsert ke Supabase PostgreSQL
-        db_manager.get_connection()
-        commodity_lookup, market_lookup = db_manager.fetch_master_lookups()
-        
-        upserted = db_manager.batch_upsert_prices(
-            records=scraped_records,
-            commodity_lookup=commodity_lookup,
-            market_lookup=market_lookup,
-            default_regency_id="3578" # Surabaya BPS Code
-        )
-        logger.info(f"Sukses mengunggah {upserted} baris data harga pangan Surabaya ke database.")
-        
+        # 3. Periksa Ketersediaan Database & Upload
+        db_connected = False
+        if DB_CONFIGURED:
+            try:
+                logger.info("Mencoba menghubungkan ke database PostgreSQL...")
+                db_manager.get_connection()
+                commodity_lookup, market_lookup = db_manager.fetch_master_lookups()
+                
+                logger.info(f"Memproses {len(scraped_records)} baris data untuk dimasukkan ke database...")
+                upserted = db_manager.batch_upsert_prices(
+                    records=scraped_records,
+                    commodity_lookup=commodity_lookup,
+                    market_lookup=market_lookup,
+                    default_regency_id="3578" # Surabaya BPS Code
+                )
+                logger.info(f"Sukses mengunggah {upserted} baris data harga pangan Surabaya ke database.")
+                db_connected = True
+            except Exception as db_err:
+                logger.error(f"[ERROR] Gagal menghubungkan atau mengunggah data ke database PostgreSQL: {str(db_err)}")
+                logger.warning("Beralih ke Serverless Resilient Fallback Mode...")
+        else:
+            logger.warning("[WARNING] Database tidak dikonfigurasi di secrets atau lingkungan lokal.")
+            logger.warning("Beralih ke Serverless Resilient Fallback Mode...")
+
         # 4. Ekspor Data JSON Statis (Docs)
-        export_static_json(db_manager)
-        
+        if db_connected:
+            try:
+                export_static_json(db_manager)
+            except Exception as exp_err:
+                logger.error(f"Gagal mengekspor data menggunakan SQL: {str(exp_err)}")
+                logger.warning("Beralih ke ekspor data offline menggunakan Python...")
+                run_offline_pipeline(scraped_records)
+        else:
+            run_offline_pipeline(scraped_records)
+            
     except Exception as e:
         logger.critical(f"Kesalahan kritis global: {str(e)}", exc_info=True)
         sys.exit(1)
@@ -491,3 +578,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

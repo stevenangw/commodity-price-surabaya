@@ -2,7 +2,7 @@
   "1": {
     "commodity_id": 1,
     "commodity_name": "Beras Premium",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -10,8 +10,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 14757.66,
-        "price_date": "2026-05-25",
+        "price": 14808.22,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -20,8 +20,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 13574.68,
-        "price_date": "2026-05-25",
+        "price": 13884.3,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -30,8 +30,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 15416.62,
-        "price_date": "2026-05-25",
+        "price": 15278.93,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -40,8 +40,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 14514.87,
-        "price_date": "2026-05-25",
+        "price": 15363.46,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -50,8 +50,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 14495.65,
-        "price_date": "2026-05-25",
+        "price": 15724.28,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -60,8 +60,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 14594.07,
-        "price_date": "2026-05-25",
+        "price": 15185.43,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -70,8 +70,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 15077.18,
-        "price_date": "2026-05-25",
+        "price": 14786.22,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 14808.22,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 13884.3,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 15278.93,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 15363.46,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 15724.28,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 15185.43,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 14786.22,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -79,7 +149,7 @@
   "2": {
     "commodity_id": 2,
     "commodity_name": "Beras Medium",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -87,8 +157,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 13659.07,
-        "price_date": "2026-05-25",
+        "price": 12789.97,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -97,8 +167,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 12099.74,
-        "price_date": "2026-05-25",
+        "price": 11764.73,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -107,8 +177,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 14093.73,
-        "price_date": "2026-05-25",
+        "price": 13361.07,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -117,8 +187,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 12914.19,
-        "price_date": "2026-05-25",
+        "price": 12579.56,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -127,8 +197,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 12730.63,
-        "price_date": "2026-05-25",
+        "price": 12562.89,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -137,8 +207,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 12856.2,
-        "price_date": "2026-05-25",
+        "price": 12648.19,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -147,8 +217,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 12571.13,
-        "price_date": "2026-05-25",
+        "price": 13066.89,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 12789.97,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 11764.73,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 13361.07,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 12579.56,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 12562.89,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 12648.19,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 13066.89,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -156,7 +296,7 @@
   "3": {
     "commodity_id": 3,
     "commodity_name": "Cabai Rawit Merah",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -164,8 +304,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 53665.81,
-        "price_date": "2026-05-25",
+        "price": 53828.25,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -174,8 +314,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 40909.3,
-        "price_date": "2026-05-25",
+        "price": 43366.14,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -184,8 +324,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 49252.89,
-        "price_date": "2026-05-25",
+        "price": 45258.84,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -194,8 +334,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 46704.13,
-        "price_date": "2026-05-25",
+        "price": 46191.66,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -204,8 +344,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 43977.34,
-        "price_date": "2026-05-25",
+        "price": 44544.9,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -214,8 +354,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 45079.78,
-        "price_date": "2026-05-25",
+        "price": 44157.71,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -224,8 +364,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 43654.1,
-        "price_date": "2026-05-25",
+        "price": 45492.73,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 55035.66,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 43366.14,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 45258.84,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 46191.66,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 44544.9,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 44157.71,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 45492.73,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -233,7 +443,7 @@
   "4": {
     "commodity_id": 4,
     "commodity_name": "Bawang Merah",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -241,8 +451,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 36774.42,
-        "price_date": "2026-05-25",
+        "price": 34434.54,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -251,8 +461,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 32576.22,
-        "price_date": "2026-05-25",
+        "price": 31674.26,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -261,8 +471,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 37944.66,
-        "price_date": "2026-05-25",
+        "price": 35972.11,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -271,8 +481,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 34768.99,
-        "price_date": "2026-05-25",
+        "price": 33868.04,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -281,8 +491,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 34274.78,
-        "price_date": "2026-05-25",
+        "price": 33823.17,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -291,8 +501,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 34612.84,
-        "price_date": "2026-05-25",
+        "price": 34052.83,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -301,8 +511,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 33845.35,
-        "price_date": "2026-05-25",
+        "price": 35180.09,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 34434.54,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 31674.26,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 35972.11,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 33868.04,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 33823.17,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 34052.83,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 35180.09,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -310,7 +590,7 @@
   "5": {
     "commodity_id": 5,
     "commodity_name": "Telur Ayam Ras",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -318,8 +598,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 25667.57,
-        "price_date": "2026-05-25",
+        "price": 26581.57,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -328,8 +608,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 24066.12,
-        "price_date": "2026-05-25",
+        "price": 23186.79,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -338,8 +618,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 26483.49,
-        "price_date": "2026-05-25",
+        "price": 27598.92,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -348,8 +628,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 26629.99,
-        "price_date": "2026-05-25",
+        "price": 25989.12,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -358,8 +638,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 27255.41,
-        "price_date": "2026-05-25",
+        "price": 24820.09,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -368,8 +648,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 26321.4,
-        "price_date": "2026-05-25",
+        "price": 25176.89,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -378,8 +658,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 25629.45,
-        "price_date": "2026-05-25",
+        "price": 26845.2,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 26581.57,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 23186.79,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 27598.92,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 25989.12,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 24820.09,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 25176.89,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 26845.2,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -387,7 +737,7 @@
   "6": {
     "commodity_id": 6,
     "commodity_name": "Daging Sapi",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -395,8 +745,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 127151.75,
-        "price_date": "2026-05-25",
+        "price": 126083.72,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -405,8 +755,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 107921.96,
-        "price_date": "2026-05-25",
+        "price": 111689.91,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -415,8 +765,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 124204.27,
-        "price_date": "2026-05-25",
+        "price": 130095.98,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -425,8 +775,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 124360.76,
-        "price_date": "2026-05-25",
+        "price": 119207.95,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -435,8 +785,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 121811.09,
-        "price_date": "2026-05-25",
+        "price": 117513.52,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -445,8 +795,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 124155.66,
-        "price_date": "2026-05-25",
+        "price": 118672.59,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -455,8 +805,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 123895.31,
-        "price_date": "2026-05-25",
+        "price": 116041.21,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 126083.72,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 111689.91,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 130095.98,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 119207.95,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 117513.52,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 118672.59,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 116041.21,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -464,7 +884,7 @@
   "7": {
     "commodity_id": 7,
     "commodity_name": "Daging Ayam Ras",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -472,8 +892,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 33738.14,
-        "price_date": "2026-05-25",
+        "price": 32415.06,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -482,8 +902,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 29429.39,
-        "price_date": "2026-05-25",
+        "price": 31657.62,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -492,8 +912,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 35029.4,
-        "price_date": "2026-05-25",
+        "price": 34399.5,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -502,8 +922,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 32986.19,
-        "price_date": "2026-05-25",
+        "price": 31616.64,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -512,8 +932,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 31502.42,
-        "price_date": "2026-05-25",
+        "price": 34196.88,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -522,8 +942,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 31955.28,
-        "price_date": "2026-05-25",
+        "price": 32292.97,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -532,8 +952,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 34072.76,
-        "price_date": "2026-05-25",
+        "price": 32301.49,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 32415.06,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 31657.62,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 34399.5,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 31616.64,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 34196.88,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 32292.97,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 32301.49,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -541,7 +1031,7 @@
   "8": {
     "commodity_id": 8,
     "commodity_name": "Minyak Goreng Curah",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -549,8 +1039,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 19217.56,
-        "price_date": "2026-05-25",
+        "price": 19182.05,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -559,8 +1049,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 16983.11,
-        "price_date": "2026-05-25",
+        "price": 16338.58,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -569,8 +1059,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 18855.58,
-        "price_date": "2026-05-25",
+        "price": 18384.4,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -579,8 +1069,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 18503.55,
-        "price_date": "2026-05-25",
+        "price": 18761.78,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -589,8 +1079,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 17943.61,
-        "price_date": "2026-05-25",
+        "price": 17891.87,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -599,8 +1089,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 18097.32,
-        "price_date": "2026-05-25",
+        "price": 17644.47,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -609,8 +1099,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 17869.87,
-        "price_date": "2026-05-25",
+        "price": 18763.01,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 19182.05,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 16338.58,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 18384.4,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 18761.78,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 17891.87,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 17644.47,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 18763.01,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -618,7 +1178,7 @@
   "9": {
     "commodity_id": 9,
     "commodity_name": "Gula Pasir",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -626,8 +1186,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 18082.1,
-        "price_date": "2026-05-25",
+        "price": 18013.17,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -636,8 +1196,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 15774.71,
-        "price_date": "2026-05-25",
+        "price": 15288.94,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -646,8 +1206,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 17941.85,
-        "price_date": "2026-05-25",
+        "price": 17595.6,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -656,8 +1216,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 17373.77,
-        "price_date": "2026-05-25",
+        "price": 17617.77,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -666,8 +1226,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 17361.18,
-        "price_date": "2026-05-25",
+        "price": 17256.57,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -676,8 +1236,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 17621.28,
-        "price_date": "2026-05-25",
+        "price": 17588.72,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -686,8 +1246,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 16310.38,
-        "price_date": "2026-05-25",
+        "price": 17551.84,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 18013.17,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 15288.94,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 17595.6,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 17617.77,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 17256.57,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 17588.72,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 17551.84,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]
@@ -695,7 +1325,7 @@
   "10": {
     "commodity_id": 10,
     "commodity_name": "Bawang Putih",
-    "target_date": "2026-05-25",
+    "target_date": "2026-05-26",
     "records": [
       {
         "market_id": 1,
@@ -703,8 +1333,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3017,
         "longitude": 112.7373,
-        "price": 39926.51,
-        "price_date": "2026-05-25",
+        "price": 37386.07,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -713,8 +1343,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2731,
         "longitude": 112.7441,
-        "price": 35368.47,
-        "price_date": "2026-05-25",
+        "price": 34389.2,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -723,8 +1353,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2575,
         "longitude": 112.7423,
-        "price": 41197.06,
-        "price_date": "2026-05-25",
+        "price": 39055.43,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -733,8 +1363,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2309,
         "longitude": 112.7381,
-        "price": 37749.19,
-        "price_date": "2026-05-25",
+        "price": 36771.02,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -743,8 +1373,8 @@
         "market_type": "Tradisional",
         "latitude": -7.2482,
         "longitude": 112.7594,
-        "price": 37212.61,
-        "price_date": "2026-05-25",
+        "price": 36722.3,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -753,8 +1383,8 @@
         "market_type": "Tradisional",
         "latitude": -7.3275,
         "longitude": 112.7758,
-        "price": 37579.65,
-        "price_date": "2026-05-25",
+        "price": 36971.65,
+        "price_date": "2026-05-26",
         "unit": "kg"
       },
       {
@@ -763,8 +1393,78 @@
         "market_type": "Tradisional",
         "latitude": -7.2536,
         "longitude": 112.7346,
-        "price": 36746.38,
-        "price_date": "2026-05-25",
+        "price": 38195.53,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 1,
+        "market_name": "Pasar Wonokromo",
+        "market_type": "Tradisional",
+        "latitude": -7.3017,
+        "longitude": 112.7373,
+        "price": 37386.07,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 2,
+        "market_name": "Pasar Keputran",
+        "market_type": "Tradisional",
+        "latitude": -7.2731,
+        "longitude": 112.7441,
+        "price": 34389.2,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 3,
+        "market_name": "Pasar Genteng",
+        "market_type": "Tradisional",
+        "latitude": -7.2575,
+        "longitude": 112.7423,
+        "price": 39055.43,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 4,
+        "market_name": "Pasar Pabean",
+        "market_type": "Tradisional",
+        "latitude": -7.2309,
+        "longitude": 112.7381,
+        "price": 36771.02,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 5,
+        "market_name": "Pasar Tambahrejo",
+        "market_type": "Tradisional",
+        "latitude": -7.2482,
+        "longitude": 112.7594,
+        "price": 36722.3,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 6,
+        "market_name": "Pasar Soponyono",
+        "market_type": "Tradisional",
+        "latitude": -7.3275,
+        "longitude": 112.7758,
+        "price": 36971.65,
+        "price_date": "2026-05-26",
+        "unit": "kg"
+      },
+      {
+        "market_id": 7,
+        "market_name": "Pasar Blauran",
+        "market_type": "Tradisional",
+        "latitude": -7.2536,
+        "longitude": 112.7346,
+        "price": 38195.53,
+        "price_date": "2026-05-26",
         "unit": "kg"
       }
     ]

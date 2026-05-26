@@ -1,8 +1,9 @@
 import logging
+from datetime import date
 import psycopg2
 from psycopg2 import extras
 from typing import List, Dict, Tuple, Optional
-from scraper.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+from scraper.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD, DB_SSLMODE
 from scraper.utils.parser import ScrapedPriceRecord
 
 logger = logging.getLogger("scraper.database")
@@ -23,7 +24,8 @@ class DatabaseManager:
             "port": DB_PORT,
             "database": DB_NAME,
             "user": DB_USER,
-            "password": DB_PASSWORD
+            "password": DB_PASSWORD,
+            "sslmode": DB_SSLMODE
         }
         self.connection = None
 
