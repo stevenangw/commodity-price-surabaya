@@ -43,6 +43,12 @@ jobs:
         # Jalankan scraper Surabaya dalam dual-mode (Siskaperbapo Jatim dengan fallback Mock)
         python -m scraper.main
 
+    - name: Pull Latest Changes (Prevent Conflicts)
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git pull --rebase origin main
+
     - name: Commit and Push Updated Dasbor Data JSON
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
