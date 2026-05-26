@@ -345,7 +345,7 @@
         </section>
         
         <!-- Right Section (70% Width): Interactive Tabs Content (Map, Chart, Table) -->
-        <section class="flex-1 flex flex-col gap-4 min-h-[450px] md:min-h-0 min-w-0">
+        <section id="panel-main-section" class="flex-1 flex flex-col gap-4 min-h-[450px] md:min-h-0 min-w-0">
             
             <!-- Tabs Navigation Row -->
             <div class="hidden md:flex items-center justify-between border-b border-border pb-3">
@@ -581,6 +581,7 @@
         const loadingOverlay = document.getElementById('loading-overlay');
         const emptyOverlay = document.getElementById('empty-overlay');
         const activeInfoBadge = document.getElementById('active-info-badge');
+        const panelMainSection = document.getElementById('panel-main-section');
         
         // Metrics Dom
         const statAvg = document.getElementById('stat-avg');
