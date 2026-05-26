@@ -785,7 +785,18 @@
                 const data = await fetchAPI(
                     url,
                     `${BASE_PATH}data/latest_prices.json`,
-                    (staticData) => staticData[selectedCommodityId] || { commodity_id: selectedCommodityId, commodity_name: '', target_date: '', records: [] }
+                    (staticData) => {
+                        let commData = staticData[selectedCommodityId];
+                        if (!commData) {
+                            const availableIds = Object.keys(staticData);
+                            if (availableIds.length > 0) {
+                                selectedCommodityId = parseInt(availableIds[0]);
+                                commData = staticData[selectedCommodityId];
+                                renderCommoditySelectors();
+                            }
+                        }
+                        return commData || { commodity_id: selectedCommodityId, commodity_name: '', target_date: '', records: [] };
+                    }
                 );
                 
                 if (!selectedDate && data.target_date) {
@@ -841,7 +852,17 @@
                 const data = await fetchAPI(
                     url,
                     `${BASE_PATH}data/trends.json`,
-                    (staticData) => staticData[selectedCommodityId] || { commodity_id: selectedCommodityId, commodity_name: '', trend: [] }
+                    (staticData) => {
+                        let commData = staticData[selectedCommodityId];
+                        if (!commData) {
+                            const availableIds = Object.keys(staticData);
+                            if (availableIds.length > 0) {
+                                selectedCommodityId = parseInt(availableIds[0]);
+                                commData = staticData[selectedCommodityId];
+                            }
+                        }
+                        return commData || { commodity_id: selectedCommodityId, commodity_name: '', trend: [] };
+                    }
                 );
                 const trend = data.trend;
 

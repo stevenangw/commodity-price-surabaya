@@ -207,6 +207,13 @@ def generate_dashboard_jsons(records: List[ScrapedPriceRecord]):
         logger.warning("Tidak ada data records untuk diekspor ke JSON dasbor.")
         return
         
+    # Deduplicate records by (market, commodity, date)
+    unique_records = {}
+    for r in records:
+        key = (r.normalized_market_name, r.normalized_commodity_name, r.price_date)
+        unique_records[key] = r
+    records = list(unique_records.values())
+        
     # Ambil tanggal terbaru (max date) dari data
     max_date = max(r.price_date for r in records)
     
