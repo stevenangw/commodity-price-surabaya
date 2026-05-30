@@ -1,6 +1,6 @@
 {
   "1D": {
-    "target_date": "2026-05-29",
+    "target_date": "2026-05-30",
     "anomalies": [
       {
         "market_id": 1,
@@ -10,33 +10,19 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-05-29",
-        "current_price": 58686.73,
-        "avg_price_7d": 47955.12,
-        "price_increase_pct": 22.3784446791083
+        "price_date": "2026-05-30",
+        "current_price": 54107.78,
+        "avg_price_7d": 45837.29,
+        "price_increase_pct": 18.04314783880111
       }
     ]
   },
   "3D": {
-    "target_date": "2026-05-29",
-    "anomalies": [
-      {
-        "market_id": 1,
-        "market_name": "Pasar Wonokromo",
-        "market_type": "Tradisional",
-        "latitude": -7.3017,
-        "longitude": 112.7373,
-        "commodity_id": 3,
-        "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-05-29",
-        "current_price": 58686.73,
-        "avg_price_7d": 47629.306666666664,
-        "price_increase_pct": 23.215587433843268
-      }
-    ]
+    "target_date": "2026-05-30",
+    "anomalies": []
   },
   "1W": {
-    "target_date": "2026-05-29",
+    "target_date": "2026-05-30",
     "anomalies": [
       {
         "market_id": 1,
@@ -46,15 +32,15 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-05-29",
-        "current_price": 58686.73,
-        "avg_price_7d": 46098.23857142858,
-        "price_increase_pct": 27.307966244883165
+        "price_date": "2026-05-30",
+        "current_price": 54107.78,
+        "avg_price_7d": 46300.044285714284,
+        "price_increase_pct": 16.86334394434859
       }
     ]
   },
   "1M": {
-    "target_date": "2026-05-29",
+    "target_date": "2026-05-30",
     "anomalies": [
       {
         "market_id": 1,
@@ -64,10 +50,10 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-05-29",
-        "current_price": 58686.73,
-        "avg_price_7d": 46301.268,
-        "price_increase_pct": 26.74972529909982
+        "price_date": "2026-05-30",
+        "current_price": 54107.78,
+        "avg_price_7d": 46250.596,
+        "price_increase_pct": 16.988287026614753
       }
     ]
   }
