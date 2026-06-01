@@ -4,10 +4,6 @@
     "commodity_name": "Beras Premium",
     "trend": [
       {
-        "price_date": "2026-05-01",
-        "avg_price": 15106.71
-      },
-      {
         "price_date": "2026-05-02",
         "avg_price": 14994.71
       },
@@ -126,6 +122,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 15175.07
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 15082.16
       }
     ]
   },
@@ -133,10 +133,6 @@
     "commodity_id": 2,
     "commodity_name": "Beras Medium",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 12936.16
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 13092.48
@@ -256,6 +252,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 13037.18
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 13177.28
       }
     ]
   },
@@ -263,10 +263,6 @@
     "commodity_id": 3,
     "commodity_name": "Cabai Rawit Merah",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 44860.26
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 45610.86
@@ -385,7 +381,11 @@
       },
       {
         "price_date": "2026-05-31",
-        "avg_price": 46522.77
+        "avg_price": 45430.43
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 46098.04
       }
     ]
   },
@@ -393,10 +393,6 @@
     "commodity_id": 4,
     "commodity_name": "Bawang Merah",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 34828.14
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 35248.99
@@ -516,6 +512,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 35100.1
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 35477.3
       }
     ]
   },
@@ -523,10 +523,6 @@
     "commodity_id": 5,
     "commodity_name": "Telur Ayam Ras",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 25990.82
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 26107.09
@@ -646,6 +642,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 26199.37
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 26667.94
       }
     ]
   },
@@ -653,10 +653,6 @@
     "commodity_id": 6,
     "commodity_name": "Daging Sapi",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 123657.69
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 119410.76
@@ -776,6 +772,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 119902.38
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 121747.98
       }
     ]
   },
@@ -783,10 +783,6 @@
     "commodity_id": 7,
     "commodity_name": "Daging Ayam Ras",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 33135.93
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 32378.75
@@ -906,6 +902,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 32430.43
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 33791.67
       }
     ]
   },
@@ -913,10 +913,6 @@
     "commodity_id": 8,
     "commodity_name": "Minyak Goreng Curah",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 18254.14
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 18245.68
@@ -1036,6 +1032,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 17998.3
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 18063.93
       }
     ]
   },
@@ -1043,10 +1043,6 @@
     "commodity_id": 9,
     "commodity_name": "Gula Pasir",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 17166.91
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 17518.17
@@ -1166,6 +1162,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 16843.99
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 16739.65
       }
     ]
   },
@@ -1173,10 +1173,6 @@
     "commodity_id": 10,
     "commodity_name": "Bawang Putih",
     "trend": [
-      {
-        "price_date": "2026-05-01",
-        "avg_price": 37813.41
-      },
       {
         "price_date": "2026-05-02",
         "avg_price": 38270.33
@@ -1296,6 +1292,10 @@
       {
         "price_date": "2026-05-31",
         "avg_price": 38108.68
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 38518.21
       }
     ]
   }
