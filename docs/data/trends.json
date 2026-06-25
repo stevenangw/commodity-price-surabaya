@@ -1,142 +1,8 @@
 {
-  "1": {
-    "commodity_id": 1,
-    "commodity_name": "Beras Premium",
-    "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 14632.96
-      },
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 15004.41
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 14851.53
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 14862.35
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 14987.8
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 15042.9
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 15175.07
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 15082.16
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 15385.35
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 15359.85
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 15357.88
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 14835.87
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 14982.94
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 15053.28
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 14895.61
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 14940.5
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 14843.39
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 15081.09
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 14907.48
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 14970.96
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 14846.84
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 14624.37
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 14923.92
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 14969.87
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 14988.97
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 14965.14
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 14755.4
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 14871.47
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 15020.81
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 15012.31
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 14834.37
-      }
-    ]
-  },
   "2": {
     "commodity_id": 2,
     "commodity_name": "Beras Medium",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 12989.24
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 12681.9
@@ -256,6 +122,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 13010.67
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 12856.45
       }
     ]
   },
@@ -263,10 +133,6 @@
     "commodity_id": 3,
     "commodity_name": "Cabai Rawit Merah",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 44963.39
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 45128.7
@@ -385,7 +251,11 @@
       },
       {
         "price_date": "2026-06-24",
-        "avg_price": 47679.09
+        "avg_price": 46181.14
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 46374.69
       }
     ]
   },
@@ -393,10 +263,6 @@
     "commodity_id": 4,
     "commodity_name": "Bawang Merah",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 34971.04
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 34143.58
@@ -516,6 +382,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 35028.72
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 34613.52
       }
     ]
   },
@@ -523,10 +393,6 @@
     "commodity_id": 5,
     "commodity_name": "Telur Ayam Ras",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 26007.63
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 25742.65
@@ -646,6 +512,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 26472.01
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 25576.21
       }
     ]
   },
@@ -653,10 +523,6 @@
     "commodity_id": 6,
     "commodity_name": "Daging Sapi",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 121928.69
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 119900.7
@@ -776,6 +642,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 120166.47
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 120098.48
       }
     ]
   },
@@ -783,10 +653,6 @@
     "commodity_id": 7,
     "commodity_name": "Daging Ayam Ras",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 32673.37
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 32697.17
@@ -906,6 +772,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 32462.11
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 33456.32
       }
     ]
   },
@@ -913,10 +783,6 @@
     "commodity_id": 8,
     "commodity_name": "Minyak Goreng Curah",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 18210.09
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 18138.02
@@ -1036,6 +902,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 17756.28
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 17812.38
       }
     ]
   },
@@ -1043,10 +913,6 @@
     "commodity_id": 9,
     "commodity_name": "Gula Pasir",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 17209.32
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 17273.23
@@ -1166,6 +1032,10 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 16854.33
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 17023.58
       }
     ]
   },
@@ -1173,10 +1043,6 @@
     "commodity_id": 10,
     "commodity_name": "Bawang Putih",
     "trend": [
-      {
-        "price_date": "2026-05-25",
-        "avg_price": 37968.55
-      },
       {
         "price_date": "2026-05-26",
         "avg_price": 37070.17
@@ -1296,6 +1162,140 @@
       {
         "price_date": "2026-06-24",
         "avg_price": 38031.19
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 37580.4
+      }
+    ]
+  },
+  "1": {
+    "commodity_id": 1,
+    "commodity_name": "Beras Premium",
+    "trend": [
+      {
+        "price_date": "2026-05-26",
+        "avg_price": 15004.41
+      },
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 14851.53
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 14862.35
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 14987.8
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 15042.9
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 15175.07
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 15082.16
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 15385.35
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 15359.85
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 15357.88
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 14835.87
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 14982.94
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 15053.28
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 14895.61
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 14940.5
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 14843.39
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 15081.09
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 14907.48
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 14970.96
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 14846.84
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 14624.37
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 14923.92
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 14969.87
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 14988.97
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 14965.14
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 14755.4
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 14871.47
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 15020.81
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 15012.31
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 14834.37
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 15272.32
       }
     ]
   }
