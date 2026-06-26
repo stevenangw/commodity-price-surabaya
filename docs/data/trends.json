@@ -1,1182 +1,8 @@
 {
-  "2": {
-    "commodity_id": 2,
-    "commodity_name": "Beras Medium",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 12681.9
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 13003.82
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 12871.33
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 12880.7
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 12989.42
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 13037.18
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 13177.28
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 13071.2
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 13333.97
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 13311.87
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 13310.17
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 12857.76
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 12985.22
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 13046.17
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 12909.53
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 12948.44
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 12864.27
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 13070.28
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 12919.81
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 12974.84
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 12867.26
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 12674.45
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 12934.07
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 12973.89
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 12990.44
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 12969.79
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 12788.01
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 12888.61
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 13018.04
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 13010.67
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 12856.45
-      }
-    ]
-  },
-  "3": {
-    "commodity_id": 3,
-    "commodity_name": "Cabai Rawit Merah",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 45128.7
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 45525.22
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 45345.06
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 44223.31
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 44948.54
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 45430.43
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 44507.61
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 44948.82
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 45159.83
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 44686.84
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 44821.51
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 44530.18
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 45243.28
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 44722.43
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 44912.89
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 44540.52
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 43873.1
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 44771.77
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 44909.62
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 44966.92
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 44895.41
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 44266.2
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 44614.42
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 45062.43
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 45036.93
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 44503.1
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 45816.95
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 44266.51
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 45622.26
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 46181.14
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 46374.69
-      }
-    ]
-  },
-  "4": {
-    "commodity_id": 4,
-    "commodity_name": "Bawang Merah",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 34143.58
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 35010.28
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 34653.57
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 34678.81
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 34971.53
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 35100.1
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 35477.3
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 35191.7
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 35899.15
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 35839.65
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 35835.06
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 34617.03
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 34960.2
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 35124.31
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 34756.43
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 34861.17
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 34634.59
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 35189.22
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 34784.11
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 34932.25
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 34642.62
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 34123.52
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 34822.49
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 34929.71
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 34974.27
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 34918.65
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 34429.27
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 34700.1
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 35048.55
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 35028.72
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 34613.52
-      }
-    ]
-  },
-  "5": {
-    "commodity_id": 5,
-    "commodity_name": "Telur Ayam Ras",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 25742.65
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 25761.4
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 25978.85
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 26074.36
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 26303.46
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 26199.37
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 26667.94
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 26623.74
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 26620.33
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 25715.51
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 25970.43
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 26092.34
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 25819.06
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 25896.87
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 25728.55
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 26140.56
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 25839.63
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 25949.67
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 25734.52
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 25348.9
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 25868.13
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 25947.78
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 25980.89
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 25939.57
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 25576.03
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 25777.22
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 26036.07
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 26021.34
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 25712.9
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 26472.01
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 25576.21
-      }
-    ]
-  },
-  "6": {
-    "commodity_id": 6,
-    "commodity_name": "Daging Sapi",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 119900.7
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 117063.7
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 120035.23
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 118812.26
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 118898.78
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 119902.38
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 121747.98
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 121636.47
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 120657.27
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 123082.79
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 122878.81
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 122863.08
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 118686.97
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 119863.53
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 120426.2
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 119164.91
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 119524.03
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 118747.16
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 120648.75
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 119259.81
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 119767.71
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 118774.71
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 116994.92
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 119391.39
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 119759.0
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 119911.78
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 119721.09
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 118043.21
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 118971.78
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 120166.47
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 120098.48
-      }
-    ]
-  },
-  "7": {
-    "commodity_id": 7,
-    "commodity_name": "Daging Ayam Ras",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 32697.17
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 32973.15
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 33094.38
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 33385.16
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 33253.05
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 32430.43
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 33791.67
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 33787.35
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 32638.92
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 32962.47
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 33117.2
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 32770.35
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 32869.11
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 32655.47
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 33178.41
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 32796.45
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 32936.12
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 32663.04
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 32173.6
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 32832.63
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 32933.72
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 32975.74
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 32923.3
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 32461.88
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 32717.24
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 33045.78
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 33027.08
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 32635.61
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 33599.1
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 32462.11
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 33456.32
-      }
-    ]
-  },
-  "8": {
-    "commodity_id": 8,
-    "commodity_name": "Minyak Goreng Curah",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 18138.02
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 17689.32
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 17979.42
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 18172.17
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 17798.55
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 17998.3
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 18063.93
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 17874.74
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 17928.6
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 17812.07
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 18097.31
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 17888.97
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 17965.16
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 17816.21
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 17549.24
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 17908.71
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 17963.85
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 17986.77
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 17958.17
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 17706.48
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 17845.77
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 18024.97
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 18014.77
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 17801.24
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 18326.78
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 17706.61
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 18248.9
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 18472.46
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 17861.86
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 17756.28
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 17812.38
-      }
-    ]
-  },
-  "9": {
-    "commodity_id": 9,
-    "commodity_name": "Gula Pasir",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 17273.23
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 16985.93
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 16584.02
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 17004.99
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 16831.74
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 16843.99
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 16739.65
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 17247.63
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 17231.83
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 17093.11
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 17436.73
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 17407.83
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 17405.6
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 16813.99
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 16980.67
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 17060.38
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 16881.69
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 16932.57
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 16822.51
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 17091.91
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 16895.14
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 16967.09
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 16826.42
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 16574.28
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 16913.78
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 16965.86
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 16987.5
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 16960.49
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 16722.79
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 16854.33
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 17023.58
-      }
-    ]
-  },
-  "10": {
-    "commodity_id": 10,
-    "commodity_name": "Bawang Putih",
-    "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 37070.17
-      },
-      {
-        "price_date": "2026-05-27",
-        "avg_price": 38011.16
-      },
-      {
-        "price_date": "2026-05-28",
-        "avg_price": 37623.88
-      },
-      {
-        "price_date": "2026-05-29",
-        "avg_price": 37651.28
-      },
-      {
-        "price_date": "2026-05-30",
-        "avg_price": 37969.08
-      },
-      {
-        "price_date": "2026-05-31",
-        "avg_price": 38108.68
-      },
-      {
-        "price_date": "2026-06-01",
-        "avg_price": 38518.21
-      },
-      {
-        "price_date": "2026-06-02",
-        "avg_price": 38208.14
-      },
-      {
-        "price_date": "2026-06-03",
-        "avg_price": 38976.22
-      },
-      {
-        "price_date": "2026-06-04",
-        "avg_price": 38911.62
-      },
-      {
-        "price_date": "2026-06-05",
-        "avg_price": 38906.64
-      },
-      {
-        "price_date": "2026-06-06",
-        "avg_price": 37584.21
-      },
-      {
-        "price_date": "2026-06-07",
-        "avg_price": 37956.79
-      },
-      {
-        "price_date": "2026-06-08",
-        "avg_price": 38134.96
-      },
-      {
-        "price_date": "2026-06-09",
-        "avg_price": 37735.55
-      },
-      {
-        "price_date": "2026-06-10",
-        "avg_price": 37849.28
-      },
-      {
-        "price_date": "2026-06-11",
-        "avg_price": 37603.27
-      },
-      {
-        "price_date": "2026-06-12",
-        "avg_price": 38205.44
-      },
-      {
-        "price_date": "2026-06-13",
-        "avg_price": 37765.61
-      },
-      {
-        "price_date": "2026-06-14",
-        "avg_price": 37926.44
-      },
-      {
-        "price_date": "2026-06-15",
-        "avg_price": 37611.99
-      },
-      {
-        "price_date": "2026-06-16",
-        "avg_price": 37048.39
-      },
-      {
-        "price_date": "2026-06-17",
-        "avg_price": 37807.27
-      },
-      {
-        "price_date": "2026-06-18",
-        "avg_price": 37923.68
-      },
-      {
-        "price_date": "2026-06-19",
-        "avg_price": 37972.06
-      },
-      {
-        "price_date": "2026-06-20",
-        "avg_price": 37911.68
-      },
-      {
-        "price_date": "2026-06-21",
-        "avg_price": 37380.35
-      },
-      {
-        "price_date": "2026-06-22",
-        "avg_price": 37674.4
-      },
-      {
-        "price_date": "2026-06-23",
-        "avg_price": 38052.72
-      },
-      {
-        "price_date": "2026-06-24",
-        "avg_price": 38031.19
-      },
-      {
-        "price_date": "2026-06-25",
-        "avg_price": 37580.4
-      }
-    ]
-  },
   "1": {
     "commodity_id": 1,
     "commodity_name": "Beras Premium",
     "trend": [
-      {
-        "price_date": "2026-05-26",
-        "avg_price": 15004.41
-      },
       {
         "price_date": "2026-05-27",
         "avg_price": 14851.53
@@ -1296,6 +122,1180 @@
       {
         "price_date": "2026-06-25",
         "avg_price": 15272.32
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 14755.51
+      }
+    ]
+  },
+  "2": {
+    "commodity_id": 2,
+    "commodity_name": "Beras Medium",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 13003.82
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 12871.33
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 12880.7
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 12989.42
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 13037.18
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 13177.28
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 13071.2
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 13333.97
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 13311.87
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 13310.17
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 12857.76
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 12985.22
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 13046.17
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 12909.53
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 12948.44
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 12864.27
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 13070.28
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 12919.81
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 12974.84
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 12867.26
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 12674.45
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 12934.07
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 12973.89
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 12990.44
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 12969.79
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 12788.01
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 12888.61
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 13018.04
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 13010.67
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 12856.45
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 13236.01
+      }
+    ]
+  },
+  "3": {
+    "commodity_id": 3,
+    "commodity_name": "Cabai Rawit Merah",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 45525.22
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 45345.06
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 44223.31
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 44948.54
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 45430.43
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 44507.61
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 44948.82
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 45159.83
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 44686.84
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 44821.51
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 44530.18
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 45243.28
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 44722.43
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 44912.89
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 44540.52
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 43873.1
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 44771.77
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 44909.62
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 44966.92
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 44895.41
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 44266.2
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 44614.42
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 45062.43
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 45036.93
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 44503.1
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 45816.95
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 44266.51
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 45622.26
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 46181.14
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 44654.64
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 45952.54
+      }
+    ]
+  },
+  "4": {
+    "commodity_id": 4,
+    "commodity_name": "Bawang Merah",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 35010.28
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 34653.57
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 34678.81
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 34971.53
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 35100.1
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 35477.3
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 35191.7
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 35899.15
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 35839.65
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 35835.06
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 34617.03
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 34960.2
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 35124.31
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 34756.43
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 34861.17
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 34634.59
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 35189.22
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 34784.11
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 34932.25
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 34642.62
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 34123.52
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 34822.49
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 34929.71
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 34974.27
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 34918.65
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 34429.27
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 34700.1
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 35048.55
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 35028.72
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 34613.52
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 35635.4
+      }
+    ]
+  },
+  "5": {
+    "commodity_id": 5,
+    "commodity_name": "Telur Ayam Ras",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 25761.4
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 25978.85
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 26074.36
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 26303.46
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 26199.37
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 26667.94
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 26623.74
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 26620.33
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 25715.51
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 25970.43
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 26092.34
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 25819.06
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 25896.87
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 25728.55
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 26140.56
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 25839.63
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 25949.67
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 25734.52
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 25348.9
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 25868.13
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 25947.78
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 25980.89
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 25939.57
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 25576.03
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 25777.22
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 26036.07
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 26021.34
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 25712.9
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 26472.01
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 25576.21
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 26359.53
+      }
+    ]
+  },
+  "6": {
+    "commodity_id": 6,
+    "commodity_name": "Daging Sapi",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 117063.7
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 120035.23
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 118812.26
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 118898.78
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 119902.38
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 121747.98
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 121636.47
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 120657.27
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 123082.79
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 122878.81
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 122863.08
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 118686.97
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 119863.53
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 120426.2
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 119164.91
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 119524.03
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 118747.16
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 120648.75
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 119259.81
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 119767.71
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 118774.71
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 116994.92
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 119391.39
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 119759.0
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 119911.78
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 119721.09
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 118043.21
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 118971.78
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 120166.47
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 120098.48
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 118674.94
+      }
+    ]
+  },
+  "7": {
+    "commodity_id": 7,
+    "commodity_name": "Daging Ayam Ras",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 32973.15
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 33094.38
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 33385.16
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 33253.05
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 32430.43
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 33791.67
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 33787.35
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 32638.92
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 32962.47
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 33117.2
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 32770.35
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 32869.11
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 32655.47
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 33178.41
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 32796.45
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 32936.12
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 32663.04
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 32173.6
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 32832.63
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 32933.72
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 32975.74
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 32923.3
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 32461.88
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 32717.24
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 33045.78
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 33027.08
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 32635.61
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 33599.1
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 32462.11
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 33456.32
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 33866.17
+      }
+    ]
+  },
+  "8": {
+    "commodity_id": 8,
+    "commodity_name": "Minyak Goreng Curah",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 17689.32
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 17979.42
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 18172.17
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 17798.55
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 17998.3
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 18063.93
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 17874.74
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 17928.6
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 17812.07
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 18097.31
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 17888.97
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 17965.16
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 17816.21
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 17549.24
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 17908.71
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 17963.85
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 17986.77
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 17958.17
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 17706.48
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 17845.77
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 18024.97
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 18014.77
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 17801.24
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 18326.78
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 17706.61
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 18248.9
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 18472.46
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 17861.86
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 17756.28
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 17812.38
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 17952.79
+      }
+    ]
+  },
+  "9": {
+    "commodity_id": 9,
+    "commodity_name": "Gula Pasir",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 16985.93
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 16584.02
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 17004.99
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 16831.74
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 16843.99
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 16739.65
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 17247.63
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 17231.83
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 17093.11
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 17436.73
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 17407.83
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 17405.6
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 16813.99
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 16980.67
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 17060.38
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 16881.69
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 16932.57
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 16822.51
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 17091.91
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 16895.14
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 16967.09
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 16826.42
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 16574.28
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 16913.78
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 16965.86
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 16987.5
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 16960.49
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 16722.79
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 16854.33
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 17023.58
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 17013.95
+      }
+    ]
+  },
+  "10": {
+    "commodity_id": 10,
+    "commodity_name": "Bawang Putih",
+    "trend": [
+      {
+        "price_date": "2026-05-27",
+        "avg_price": 38011.16
+      },
+      {
+        "price_date": "2026-05-28",
+        "avg_price": 37623.88
+      },
+      {
+        "price_date": "2026-05-29",
+        "avg_price": 37651.28
+      },
+      {
+        "price_date": "2026-05-30",
+        "avg_price": 37969.08
+      },
+      {
+        "price_date": "2026-05-31",
+        "avg_price": 38108.68
+      },
+      {
+        "price_date": "2026-06-01",
+        "avg_price": 38518.21
+      },
+      {
+        "price_date": "2026-06-02",
+        "avg_price": 38208.14
+      },
+      {
+        "price_date": "2026-06-03",
+        "avg_price": 38976.22
+      },
+      {
+        "price_date": "2026-06-04",
+        "avg_price": 38911.62
+      },
+      {
+        "price_date": "2026-06-05",
+        "avg_price": 38906.64
+      },
+      {
+        "price_date": "2026-06-06",
+        "avg_price": 37584.21
+      },
+      {
+        "price_date": "2026-06-07",
+        "avg_price": 37956.79
+      },
+      {
+        "price_date": "2026-06-08",
+        "avg_price": 38134.96
+      },
+      {
+        "price_date": "2026-06-09",
+        "avg_price": 37735.55
+      },
+      {
+        "price_date": "2026-06-10",
+        "avg_price": 37849.28
+      },
+      {
+        "price_date": "2026-06-11",
+        "avg_price": 37603.27
+      },
+      {
+        "price_date": "2026-06-12",
+        "avg_price": 38205.44
+      },
+      {
+        "price_date": "2026-06-13",
+        "avg_price": 37765.61
+      },
+      {
+        "price_date": "2026-06-14",
+        "avg_price": 37926.44
+      },
+      {
+        "price_date": "2026-06-15",
+        "avg_price": 37611.99
+      },
+      {
+        "price_date": "2026-06-16",
+        "avg_price": 37048.39
+      },
+      {
+        "price_date": "2026-06-17",
+        "avg_price": 37807.27
+      },
+      {
+        "price_date": "2026-06-18",
+        "avg_price": 37923.68
+      },
+      {
+        "price_date": "2026-06-19",
+        "avg_price": 37972.06
+      },
+      {
+        "price_date": "2026-06-20",
+        "avg_price": 37911.68
+      },
+      {
+        "price_date": "2026-06-21",
+        "avg_price": 37380.35
+      },
+      {
+        "price_date": "2026-06-22",
+        "avg_price": 37674.4
+      },
+      {
+        "price_date": "2026-06-23",
+        "avg_price": 38052.72
+      },
+      {
+        "price_date": "2026-06-24",
+        "avg_price": 38031.19
+      },
+      {
+        "price_date": "2026-06-25",
+        "avg_price": 37580.4
+      },
+      {
+        "price_date": "2026-06-26",
+        "avg_price": 38689.87
       }
     ]
   }

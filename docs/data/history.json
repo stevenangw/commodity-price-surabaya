@@ -4,636 +4,6 @@
     "external_commodity_name": "Beras Premium",
     "normalized_market_name": "Pasar Wonokromo",
     "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 15283.61,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 13236.67,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 48137.71,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 35637.2,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 25995.92,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 129695.0,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 33774.94,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 17708.05,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 18210.71,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 38691.82,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 13838.56,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 11969.91,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 39535.05,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 32226.69,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 24029.83,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 105012.26,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 29729.46,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 16614.65,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 16391.25,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Keputran",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Keputran",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 34988.97,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 16249.78,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 14019.37,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 46125.47,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 37744.46,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 26104.51,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 131694.45,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 34228.65,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 18019.94,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 18654.76,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Genteng",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Genteng",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 40979.7,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 14263.03,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 12888.96,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 45564.96,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 34701.06,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 26270.71,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 118655.47,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 34310.49,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 17461.65,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 17289.37,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Pabean",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Pabean",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 37675.44,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 15296.27,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 12491.2,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 45494.92,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 33630.15,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 26174.4,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 122686.45,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 33459.25,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 17917.76,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 16718.33,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Tambahrejo",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Tambahrejo",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 36512.74,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 14510.27,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 13289.82,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 45904.27,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 35780.27,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 25200.21,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 118278.38,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 34078.2,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 17252.29,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 16237.16,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Soponyono",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Soponyono",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 38847.15,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Beras Premium",
-    "price_date": "2026-05-11",
-    "price": 15676.27,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Beras Medium",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Beras Medium",
-    "price_date": "2026-05-11",
-    "price": 13560.79,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Cabai Rawit Merah",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Cabai Rawit Merah",
-    "price_date": "2026-05-11",
-    "price": 43029.4,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Bawang Merah",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Bawang Merah",
-    "price_date": "2026-05-11",
-    "price": 36509.82,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Telur Ayam Ras",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Telur Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 27175.04,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Daging Sapi",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Daging Sapi",
-    "price_date": "2026-05-11",
-    "price": 122250.28,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Daging Ayam Ras",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Daging Ayam Ras",
-    "price_date": "2026-05-11",
-    "price": 33892.99,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Minyak Goreng Curah",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Minyak Goreng Curah",
-    "price_date": "2026-05-11",
-    "price": 18208.72,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Gula Pasir",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Gula Pasir",
-    "price_date": "2026-05-11",
-    "price": 17122.64,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Blauran",
-    "external_commodity_name": "Bawang Putih",
-    "normalized_market_name": "Pasar Blauran",
-    "normalized_commodity_name": "Bawang Putih",
-    "price_date": "2026-05-11",
-    "price": 39639.24,
-    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
-  },
-  {
-    "external_market_name": "Pasar Wonokromo",
-    "external_commodity_name": "Beras Premium",
-    "normalized_market_name": "Pasar Wonokromo",
-    "normalized_commodity_name": "Beras Premium",
     "price_date": "2026-05-12",
     "price": 14997.64,
     "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
@@ -28373,7 +27743,7 @@
     "normalized_market_name": "Pasar Wonokromo",
     "normalized_commodity_name": "Cabai Rawit Merah",
     "price_date": "2026-06-25",
-    "price": 57294.44,
+    "price": 45254.08,
     "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
   },
   {
@@ -28977,6 +28347,636 @@
     "normalized_commodity_name": "Bawang Putih",
     "price_date": "2026-06-25",
     "price": 36483.41,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 15210.93,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 13399.64,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 55175.14,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 36075.95,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 27903.97,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 121842.5,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 34875.83,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 18452.86,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 17588.44,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Wonokromo",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Wonokromo",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 39168.17,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 13486.36,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 11828.15,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 41782.3,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 31845.03,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 23831.38,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 112144.47,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 30020.99,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 15927.16,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 15447.49,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Keputran",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Keputran",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 34574.6,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 15032.5,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 13751.32,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 48620.08,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 37022.79,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 26193.94,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 132055.64,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 36335.71,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 19107.91,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 17424.1,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Genteng",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Genteng",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 40196.17,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 14635.09,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 13493.27,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 43501.94,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 36328.02,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 27297.34,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 116627.65,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 34438.66,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 18164.48,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 17093.24,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Pabean",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Pabean",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 39441.85,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 15212.26,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 13516.84,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 46110.11,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 36391.5,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 24854.81,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 116600.6,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 34595.37,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 18048.06,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 17117.84,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Tambahrejo",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Tambahrejo",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 39510.77,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 15069.3,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 13066.91,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 43301.39,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 35180.15,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 27185.66,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 116242.92,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 33551.66,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 17305.44,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 16920.1,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Soponyono",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Soponyono",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 38195.59,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Beras Premium",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Beras Premium",
+    "price_date": "2026-06-26",
+    "price": 14642.1,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Beras Medium",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Beras Medium",
+    "price_date": "2026-06-26",
+    "price": 13595.92,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Cabai Rawit Merah",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Cabai Rawit Merah",
+    "price_date": "2026-06-26",
+    "price": 43176.83,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Bawang Merah",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Bawang Merah",
+    "price_date": "2026-06-26",
+    "price": 36604.39,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Telur Ayam Ras",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Telur Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 27249.58,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Daging Sapi",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Daging Sapi",
+    "price_date": "2026-06-26",
+    "price": 115210.77,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Daging Ayam Ras",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Daging Ayam Ras",
+    "price_date": "2026-06-26",
+    "price": 33244.95,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Minyak Goreng Curah",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Minyak Goreng Curah",
+    "price_date": "2026-06-26",
+    "price": 18663.64,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Gula Pasir",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Gula Pasir",
+    "price_date": "2026-06-26",
+    "price": 17506.45,
+    "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
+  },
+  {
+    "external_market_name": "Pasar Blauran",
+    "external_commodity_name": "Bawang Putih",
+    "normalized_market_name": "Pasar Blauran",
+    "normalized_commodity_name": "Bawang Putih",
+    "price_date": "2026-06-26",
+    "price": 39741.91,
     "source_url": "https://siskaperbapo.jatimprov.go.id/harga/tabel"
   }
 ]
