@@ -1,6 +1,6 @@
 {
   "1D": {
-    "target_date": "2026-08-18",
+    "target_date": "2026-08-19",
     "anomalies": [
       {
         "market_id": 1,
@@ -10,65 +10,23 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-18",
-        "current_price": 57327.27,
-        "avg_price_7d": 48544.41,
-        "price_increase_pct": 18.09242299988813
+        "price_date": "2026-08-19",
+        "current_price": 52805.07,
+        "avg_price_7d": 44377.97,
+        "price_increase_pct": 18.98937693634927
       }
     ]
   },
   "3D": {
-    "target_date": "2026-08-18",
-    "anomalies": [
-      {
-        "market_id": 1,
-        "market_name": "Pasar Wonokromo",
-        "market_type": "Tradisional",
-        "latitude": -7.3017,
-        "longitude": 112.7373,
-        "commodity_id": 3,
-        "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-18",
-        "current_price": 57327.27,
-        "avg_price_7d": 48031.89666666667,
-        "price_increase_pct": 19.352501105341865
-      }
-    ]
+    "target_date": "2026-08-19",
+    "anomalies": []
   },
   "1W": {
-    "target_date": "2026-08-18",
-    "anomalies": [
-      {
-        "market_id": 1,
-        "market_name": "Pasar Wonokromo",
-        "market_type": "Tradisional",
-        "latitude": -7.3017,
-        "longitude": 112.7373,
-        "commodity_id": 3,
-        "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-18",
-        "current_price": 57327.27,
-        "avg_price_7d": 47579.65571428571,
-        "price_increase_pct": 20.486937409233036
-      }
-    ]
+    "target_date": "2026-08-19",
+    "anomalies": []
   },
   "1M": {
-    "target_date": "2026-08-18",
-    "anomalies": [
-      {
-        "market_id": 1,
-        "market_name": "Pasar Wonokromo",
-        "market_type": "Tradisional",
-        "latitude": -7.3017,
-        "longitude": 112.7373,
-        "commodity_id": 3,
-        "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-18",
-        "current_price": 57327.27,
-        "avg_price_7d": 46740.75266666666,
-        "price_increase_pct": 22.64943701020705
-      }
-    ]
+    "target_date": "2026-08-19",
+    "anomalies": []
   }
 }
