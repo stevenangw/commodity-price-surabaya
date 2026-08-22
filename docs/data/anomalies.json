@@ -1,6 +1,6 @@
 {
   "1D": {
-    "target_date": "2026-08-21",
+    "target_date": "2026-08-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -10,15 +10,15 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-21",
-        "current_price": 55101.68,
-        "avg_price_7d": 46217.62,
-        "price_increase_pct": 19.222236021673115
+        "price_date": "2026-08-22",
+        "current_price": 56033.51,
+        "avg_price_7d": 46906.58,
+        "price_increase_pct": 19.4576752344767
       }
     ]
   },
   "3D": {
-    "target_date": "2026-08-21",
+    "target_date": "2026-08-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -28,15 +28,15 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-21",
-        "current_price": 55101.68,
-        "avg_price_7d": 45994.55666666667,
-        "price_increase_pct": 19.80043725464034
+        "price_date": "2026-08-22",
+        "current_price": 56033.51,
+        "avg_price_7d": 46837.42666666667,
+        "price_increase_pct": 19.63404906674348
       }
     ]
   },
   "1W": {
-    "target_date": "2026-08-21",
+    "target_date": "2026-08-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -46,15 +46,15 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-21",
-        "current_price": 55101.68,
-        "avg_price_7d": 46970.41571428571,
-        "price_increase_pct": 17.31145905792192
+        "price_date": "2026-08-22",
+        "current_price": 56033.51,
+        "avg_price_7d": 46997.99142857144,
+        "price_increase_pct": 19.2253292040383
       }
     ]
   },
   "1M": {
-    "target_date": "2026-08-21",
+    "target_date": "2026-08-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -64,10 +64,10 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-08-21",
-        "current_price": 55101.68,
-        "avg_price_7d": 46793.85366666666,
-        "price_increase_pct": 17.754097349010113
+        "price_date": "2026-08-22",
+        "current_price": 56033.51,
+        "avg_price_7d": 46811.94833333333,
+        "price_increase_pct": 19.69916227584206
       }
     ]
   }
