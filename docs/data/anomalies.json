@@ -1,6 +1,6 @@
 {
   "1D": {
-    "target_date": "2026-10-21",
+    "target_date": "2026-10-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -10,15 +10,15 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-10-21",
-        "current_price": 54277.4,
-        "avg_price_7d": 45612.41,
-        "price_increase_pct": 18.997001035463807
+        "price_date": "2026-10-22",
+        "current_price": 53078.79,
+        "avg_price_7d": 44110.09,
+        "price_increase_pct": 20.332536161227523
       }
     ]
   },
   "3D": {
-    "target_date": "2026-10-21",
+    "target_date": "2026-10-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -28,33 +28,19 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-10-21",
-        "current_price": 54277.4,
-        "avg_price_7d": 46790.24,
-        "price_increase_pct": 16.001542201963495
+        "price_date": "2026-10-22",
+        "current_price": 53078.79,
+        "avg_price_7d": 46096.20333333333,
+        "price_increase_pct": 15.147856356355025
       }
     ]
   },
   "1W": {
-    "target_date": "2026-10-21",
-    "anomalies": [
-      {
-        "market_id": 1,
-        "market_name": "Pasar Wonokromo",
-        "market_type": "Tradisional",
-        "latitude": -7.3017,
-        "longitude": 112.7373,
-        "commodity_id": 3,
-        "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-10-21",
-        "current_price": 54277.4,
-        "avg_price_7d": 46725.474285714285,
-        "price_increase_pct": 16.1623307836484
-      }
-    ]
+    "target_date": "2026-10-22",
+    "anomalies": []
   },
   "1M": {
-    "target_date": "2026-10-21",
+    "target_date": "2026-10-22",
     "anomalies": [
       {
         "market_id": 1,
@@ -64,10 +50,10 @@
         "longitude": 112.7373,
         "commodity_id": 3,
         "commodity_name": "Cabai Rawit Merah",
-        "price_date": "2026-10-21",
-        "current_price": 54277.4,
-        "avg_price_7d": 46092.931,
-        "price_increase_pct": 17.756451634633528
+        "price_date": "2026-10-22",
+        "current_price": 53078.79,
+        "avg_price_7d": 46070.435000000005,
+        "price_increase_pct": 15.212261399311716
       }
     ]
   }
